@@ -1,0 +1,39 @@
+{
+    "name": "drupal-theme-tools",
+    "version": "1.0.0",
+    "description": "Theme toolchain for Inviqa Drupal projects.",
+    "author": "Matt Chapman <mchapman@inviqa.com>",
+    "engines": {
+        "node": ">4.0.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "drupal"
+    ],
+    "license": "UNLICENSED",
+    "dependencies": {
+        "bourbon": "^4.2.7",
+        "bourbon-neat": "^1.8.0",
+        "browser-sync": "^2.14.0",
+        "del": "^2.2.1",
+        "gulp": "^3.9.1",
+        "gulp-concat": "^2.6.0",
+        "gulp-eslint": "^3.0.1",
+        "gulp-imagemin": "^3.0.2",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^2.3.2",
+        "gulp-sourcemaps": "^1.6.0",
+        "gulp-svgmin": "^1.2.2",
+        "gulp-task-loader": "^1.4.4",
+        "gulp-uglify": "^2.0.0",
+        "merge-stream": "^1.0.0",
+        "normalize.scss": "^0.1.0",
+        "run-sequence": "^1.2.2"
+    },
+    "devDependencies": {
+        "tern-node-extension": "^0.5.0"
+    },
+    "private": true
+}
