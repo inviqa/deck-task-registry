@@ -1,4 +1,5 @@
 {
+  "defaultTheme": "inviqa",
   "themes": {
     "inviqa": {
       "root": "../../web/themes/custom/inviqa",

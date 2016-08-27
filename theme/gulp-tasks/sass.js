@@ -13,7 +13,7 @@ module.exports = function () {
   const sassOpts = {
     outputStyle: 'compressed',
   }
-
+  
   gulp.src(sassSrc)
     .pipe(sourcemaps.init())
     .pipe(sass(sassOpts).on('error', sass.logError))
