@@ -1,13 +1,19 @@
 {
   "env": {
-    "mocha": true,
+    "jasmine": true,
     "node": true
   },
   "plugins": [
-    "node"
+    "node",
+    "jasmine"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:node/recommended"
-  ]
+    "plugin:node/recommended",
+    "plugin:jasmine/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
 }

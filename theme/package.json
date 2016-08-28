@@ -6,13 +6,16 @@
   "engines": {
     "node": ">4.0.0"
   },
+  "scripts": {
+    "test": "node ./node_modules/.bin/jasmine"
+  },
   "keywords": [
     "drupal"
   ],
   "license": "UNLICENSED",
   "dependencies": {
     "del": "^2.2.1",
-    "gulp": "^3.9.1",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^3.0.1",
     "gulp-if": "^2.0.1",
@@ -28,7 +31,10 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
+    "eslint-plugin-jasmine": "^1.8.1",
     "eslint-plugin-node": "^2.0.0",
+    "jasmine": "^2.4.1",
+    "jasmine-spec-reporter": "^2.7.0",
     "minimist": "^1.2.0",
     "tern-node-extension": "^0.5.0"
   },

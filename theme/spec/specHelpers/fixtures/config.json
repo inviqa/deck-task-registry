@@ -1,0 +1,16 @@
+{
+  "defaultTheme": "inviqa",
+  "themes": {
+    "inviqa": {
+      "root": "../../web/themes/custom/inviqa",
+      "sass": {
+        "src": "assets/src/sass",
+        "dest": "assets/dist/css"
+      },
+      "js": {
+        "src": "assets/src/js",
+        "dest": "assets/dist/js"
+      }
+    }
+  }
+}
