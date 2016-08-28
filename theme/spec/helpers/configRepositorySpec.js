@@ -11,6 +11,11 @@ describe("configRepository", function () {
     repo = new configRepo(conf);
   });
 
+  it('can be instantiated', function () {
+      expect(repo).toBeDefined();
+      expect(repo instanceof configRepo).toBeTruthy();
+  });
+
   describe("SASS config", function () {
 
     it('gets the SASS source directory', function () {

@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = (args, conf) => {
 
   const gutil = require('gulp-util');

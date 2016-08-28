@@ -3,6 +3,7 @@
   "libs": [],
   "plugins": {
     "node": {},
+    "jasmine": {},
     "lint": {},
     "node-extension": {},
     "doc_comment": {
