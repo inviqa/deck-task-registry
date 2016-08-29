@@ -38,7 +38,6 @@
     "jasmine": "^2.4.1",
     "jasmine-spec-reporter": "^2.7.0",
     "minimist": "^1.2.0",
-    "mock-fs": "^3.11.0",
     "tern-jasmine": "^0.3.0",
     "tern-node-extension": "^0.5.0",
     "yeoman-assert": "^2.2.1"

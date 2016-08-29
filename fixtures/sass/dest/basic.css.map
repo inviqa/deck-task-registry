@@ -1,0 +1,1 @@
+{"version":3,"sources":["basic.scss"],"names":[],"mappings":"AAEA;EACE,eAHc,EAIf","file":"basic.css","sourcesContent":["$colour: #ff0000;\n\np {\n  color: $colour;\n}\n"],"sourceRoot":"/source/"}

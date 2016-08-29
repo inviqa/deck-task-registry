@@ -42,4 +42,18 @@ describe("configRepository", function () {
 
   })
 
+  describe("JS config", function () {
+
+    it('gets the JS source directory', function () {
+      const jsSource = repo.jsSourceDir;
+      expect(jsSource).toBe('themes/custom/inviqa/assets/src/js');
+    });
+
+    it('gets the JS destination directory', function () {
+      const jsDest = repo.jsDestDir;
+      expect(jsDest).toBe('themes/custom/inviqa/assets/dist/js')
+    });
+
+  })
+
 });

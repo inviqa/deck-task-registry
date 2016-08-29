@@ -8,11 +8,19 @@ class configRepository {
   }
 
   get sassSourceDir() {
-    return this.getSourceDir('sass')
+    return this.getSourceDir('sass');
   }
 
   get sassDestDir() {
     return this.getDestDir('sass');
+  }
+
+  get jsSourceDir() {
+    return this.getSourceDir('js');
+  }
+
+  get jsDestDir() {
+    return this.getDestDir('js');
   }
 
   get args() {
