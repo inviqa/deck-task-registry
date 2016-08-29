@@ -5,7 +5,10 @@
       "root": "../../web/themes/custom/inviqa",
       "sass": {
         "src": "assets/src/sass",
-        "dest": "assets/dist/css"
+        "dest": "assets/dist/css",
+        "browserSupport": [
+          "last two versions"
+        ]
       },
       "js": {
         "src": "assets/src/js",
