@@ -17,7 +17,7 @@ module.exports = conf => () => {
 
   const postCSSConf = [
     autoprefixer({
-      browsers: conf.activeThemeConf.browserSupport
+      browsers: conf.activeThemeConf.browserSupport || ['last 2 versions']
     })
   ];
 
