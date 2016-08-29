@@ -32,12 +32,12 @@ describe("configRepository", function () {
 
     it('gets the SASS source directory', function () {
       const sassSource = repo.sassSourceDir;
-      expect(sassSource).toBe('../../web/themes/custom/inviqa/assets/src/sass');
+      expect(sassSource).toBe('themes/custom/inviqa/assets/src/sass');
     });
 
     it('gets the SASS destination directory', function () {
       const sassDest = repo.sassDestDir;
-      expect(sassDest).toBe('../../web/themes/custom/inviqa/assets/dist/css')
+      expect(sassDest).toBe('themes/custom/inviqa/assets/dist/css')
     });
 
   })
