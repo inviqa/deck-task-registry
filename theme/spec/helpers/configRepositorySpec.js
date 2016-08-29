@@ -3,7 +3,7 @@
 describe("configRepository", function () {
 
   const configRepo = require('../../src/helpers/configRepository');
-  const conf = require('../specHelpers/fixtures/config.json');
+  const conf = require('../support/fixtures/config.json');
   conf.activeTheme = 'inviqa';
   conf.args = {
     'production': true
