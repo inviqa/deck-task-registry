@@ -24,6 +24,10 @@ describe("configRepository", function () {
     expect(repo.activeTheme).toBe('inviqa');
   });
 
+  it("can inform us if we're running with in prod module", function () {
+    expect(repo.isProduction).toBeTruthy();
+  });
+  
   describe("SASS config", function () {
 
     it('gets the SASS source directory', function () {

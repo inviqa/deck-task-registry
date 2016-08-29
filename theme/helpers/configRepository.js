@@ -27,6 +27,10 @@ class configRepository {
     return this.conf.themes[this.activeTheme];
   }
 
+  get isProduction() {
+    return this.args.production || false;
+  }
+
   getSourceDir(type) {
     return this.path.join(
       this.activeThemeConf.root,
