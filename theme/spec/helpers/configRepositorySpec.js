@@ -2,7 +2,7 @@
 
 describe("configRepository", function () {
 
-  const configRepo = require('../../helpers/configRepository');
+  const configRepo = require('../../src/helpers/configRepository');
   const conf = require('../specHelpers/fixtures/config.json');
   conf.activeTheme = 'inviqa';
   conf.args = {
@@ -27,7 +27,7 @@ describe("configRepository", function () {
   it("can inform us if we're running with in prod module", function () {
     expect(repo.isProduction).toBeTruthy();
   });
-  
+
   describe("SASS config", function () {
 
     it('gets the SASS source directory', function () {

@@ -2,12 +2,12 @@
 
 const baseConf = require('./config');
 const gutil = require('gulp-util');
-const configRepo = require('./helpers/configRepository');
+const configRepo = require('./src/helpers/configRepository');
 
 // Assign all CLI arguments to the config object.
-baseConf.args = require('minimist')(process.argv.slice(2), require('./helpers/cliOptions'));
+baseConf.args = require('minimist')(process.argv.slice(2), require('./src/helpers/cliOptions'));
 // Assign the default theme that we should be working with to the global config.
-baseConf.activeTheme = require('./helpers/getActiveTheme')(baseConf.args, baseConf);
+baseConf.activeTheme = require('./src/helpers/getActiveTheme')(baseConf.args, baseConf);
 
 if (baseConf.args.production) {
   gutil.log(gutil.colors.magenta('---------------------------'));
@@ -17,4 +17,4 @@ if (baseConf.args.production) {
 
 const conf = new configRepo(baseConf);
 
-exports.sass = require('./tasks/sass')(conf);
+exports.sass = require('./src/tasks/sass')(conf);
