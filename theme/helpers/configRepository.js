@@ -5,8 +5,6 @@ class configRepository {
   constructor(conf) {
     this.path = require('path');
     this.conf = conf;
-    this.activeTheme  = conf.activeTheme;
-    this.activeThemeConf = conf.themes[conf.activeTheme];
   }
 
   get sassSourceDir() {
@@ -15,6 +13,18 @@ class configRepository {
 
   get sassDestDir() {
     return this.getDestDir('sass');
+  }
+
+  get args() {
+    return this.conf.args;
+  }
+
+  get activeTheme() {
+    return this.conf.activeTheme;
+  }
+
+  get activeThemeConf() {
+    return this.conf.themes[this.activeTheme];
   }
 
   getSourceDir(type) {
