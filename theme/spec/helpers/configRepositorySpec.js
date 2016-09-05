@@ -56,4 +56,18 @@ describe("configRepository", function () {
 
   })
 
+  describe("Font config", function () {
+
+    it('gets the font source directory', function () {
+      const fontSource = repo.fontSourceDir;
+      expect(fontSource).toBe('themes/custom/inviqa/assets/src/fonts');
+    });
+
+    it('gets the font destination directory', function () {
+      const fontDest = repo.fontDestDir;
+      expect(fontDest).toBe('themes/custom/inviqa/assets/dist/fonts')
+    });
+
+  })
+
 });

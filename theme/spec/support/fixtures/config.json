@@ -10,6 +10,10 @@
       "js": {
         "src": "assets/src/js",
         "dest": "assets/dist/js"
+      },
+      "fonts": {
+        "src": "assets/src/fonts",
+        "dest": "assets/dist/fonts"
       }
     }
   }

@@ -23,6 +23,14 @@ class configRepository {
     return this.getDestDir('js');
   }
 
+  get fontSourceDir() {
+    return this.getSourceDir('fonts');
+  }
+
+  get fontDestDir() {
+    return this.getDestDir('fonts');
+  }
+
   get args() {
     return this.conf.args;
   }
