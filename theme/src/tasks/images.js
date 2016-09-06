@@ -2,10 +2,11 @@
 
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
+const path = require('path');
 
 module.exports = conf => () => {
 
-  const imageMinconfig = {
+  const imageMinConfig = {
     progressive: true,
     svgoPlugins: [
       { removeViewBox: false },
@@ -14,8 +15,8 @@ module.exports = conf => () => {
     ]
   };
 
-  return gulp.src(path.join(conf.getImageSrc, '**', '*'))
+  return gulp.src(path.join(conf.imageSourceDir, '**', '*'))
     .pipe(imagemin(imageMinConfig))
-    .pipe(conf.getImageDest);
+    .pipe(gulp.dest(conf.imageDestDir));
 
-}
+};

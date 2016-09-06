@@ -7,7 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 
-module.exports = (gulp, conf) => () => {
+module.exports = conf => () => {
 
   const sassConfig = {};
 
