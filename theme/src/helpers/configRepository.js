@@ -31,6 +31,14 @@ class configRepository {
     return this.getDestDir('fonts');
   }
 
+  get imageSourceDir() {
+    return this.getSourceDir('images');
+  }
+
+  get imageDestDir() {
+    return this.getDestDir('images');
+  }
+
   get args() {
     return this.conf.args;
   }

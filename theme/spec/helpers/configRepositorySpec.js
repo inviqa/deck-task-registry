@@ -70,4 +70,18 @@ describe("configRepository", function () {
 
   })
 
+  describe("Image config", function () {
+
+    it('gets the image source directory', function () {
+      const imageSource = repo.imageSourceDir;
+      expect(imageSource).toBe('themes/custom/inviqa/assets/src/images');
+    });
+
+    it('gets the image destination directory', function () {
+      const imageDest = repo.imageDestDir;
+      expect(imageDest).toBe('themes/custom/inviqa/assets/dist/images')
+    });
+
+  })
+
 });

@@ -14,6 +14,10 @@
       "fonts": {
         "src": "assets/src/fonts",
         "dest": "assets/dist/fonts"
+      },
+      "images": {
+        "src": "assets/src/images",
+        "dest": "assets/dist/images"
       }
     }
   }
