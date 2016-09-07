@@ -5,6 +5,8 @@ const gutil = require('gulp-util');
 const configRepo = require('./src/helpers/configRepository');
 const requireDir = require('require-dir');
 const gulp = require('gulp');
+const fs = require('fs');
+const path = require('path');
 
 // Assign all CLI arguments to the config object.
 baseConf.args = require('minimist')(process.argv.slice(2), require('./src/helpers/cliOptions'));
@@ -21,7 +23,6 @@ if (baseConf.args.production) {
 const conf = new configRepo(baseConf);
 
 // Load in all tasks.
-
 gulp.task('sass', require('./src/tasks/sass')(conf));
 gulp.task('js', require('./src/tasks/js')(conf));
 gulp.task('images', require('./src/tasks/images')(conf));
