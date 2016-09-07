@@ -11,7 +11,7 @@ module.exports = (args, conf) => {
     throw new gutil.PluginError({
       plugin: 'Main',
       message: 'No theme defined in config or CLI.'
-    })
+    });
   }
 
   // If the theme we have doesn't exist on the main config theme object, then
@@ -21,9 +21,9 @@ module.exports = (args, conf) => {
     throw new gutil.PluginError({
       plugin: 'Main',
       message: `No theme settings for ${theme} in config file.`
-    })
+    });
   }
 
   return theme;
 
-}
+};

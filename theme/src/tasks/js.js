@@ -35,15 +35,15 @@ module.exports = conf => () => {
   const reporterOptions = {};
 
   if (conf.isProduction) {
-    reporterOptions.emitError = false
+    reporterOptions.emitError = false;
   }
 
   const tsLint = gulp.src(path.join(conf.jsSourceDir, '**', '*.js'))
     .pipe(tslint())
-    .pipe(tslint.report(reporterOptions))
+    .pipe(tslint.report(reporterOptions));
 
 
   // Merge the streams to we only return once all tasks have completed.
   return merge(jsBuild, jsLint, tsLint);
 
-}
+};

@@ -7,7 +7,7 @@ describe("configRepository", function () {
   conf.activeTheme = 'inviqa';
   conf.args = {
     'production': true
-  }
+  };
   let repo;
 
   beforeEach(function () {
@@ -40,7 +40,7 @@ describe("configRepository", function () {
       expect(sassDest).toBe('themes/custom/inviqa/assets/dist/css');
     });
 
-  })
+  });
 
   describe("JS config", function () {
 
@@ -54,7 +54,7 @@ describe("configRepository", function () {
       expect(jsDest).toBe('themes/custom/inviqa/assets/dist/js');
     });
 
-  })
+  });
 
   describe("Font config", function () {
 
@@ -68,7 +68,7 @@ describe("configRepository", function () {
       expect(fontDest).toBe('themes/custom/inviqa/assets/dist/fonts');
     });
 
-  })
+  });
 
   describe("Image config", function () {
 
@@ -82,6 +82,6 @@ describe("configRepository", function () {
       expect(imageDest).toBe('themes/custom/inviqa/assets/dist/images');
     });
 
-  })
+  });
 
 });

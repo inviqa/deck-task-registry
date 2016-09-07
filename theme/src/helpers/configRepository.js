@@ -72,4 +72,4 @@ class configRepository {
 
 }
 
-module.exports = configRepository
+module.exports = configRepository;

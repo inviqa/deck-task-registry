@@ -12,7 +12,7 @@ module.exports = conf => () => {
   const sassConfig = {};
 
   if (conf.isProduction) {
-    sassConfig.outputStyle = 'compressed'
+    sassConfig.outputStyle = 'compressed';
   }
 
   const postCSSConf = [
@@ -28,4 +28,4 @@ module.exports = conf => () => {
     .pipe(gulpif(!conf.isProduction, sourcemaps.write('.')))
     .pipe(gulp.dest(conf.sassDestDir));
 
-}
+};
