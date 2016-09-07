@@ -4,6 +4,8 @@ const baseConf = require('./config');
 const gutil = require('gulp-util');
 const configRepo = require('./src/helpers/configRepository');
 const gulp = require('gulp');
+const fs = require('fs');
+const path = require('path');
 
 // Assign all CLI arguments to the config object.
 baseConf.args = require('minimist')(process.argv.slice(2), require('./src/helpers/cliOptions'));
