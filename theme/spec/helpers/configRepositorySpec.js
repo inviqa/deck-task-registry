@@ -37,7 +37,7 @@ describe("configRepository", function () {
 
     it('gets the SASS destination directory', function () {
       const sassDest = repo.sassDestDir;
-      expect(sassDest).toBe('themes/custom/inviqa/assets/dist/css')
+      expect(sassDest).toBe('themes/custom/inviqa/assets/dist/css');
     });
 
   })
@@ -51,7 +51,7 @@ describe("configRepository", function () {
 
     it('gets the JS destination directory', function () {
       const jsDest = repo.jsDestDir;
-      expect(jsDest).toBe('themes/custom/inviqa/assets/dist/js')
+      expect(jsDest).toBe('themes/custom/inviqa/assets/dist/js');
     });
 
   })
@@ -65,7 +65,7 @@ describe("configRepository", function () {
 
     it('gets the font destination directory', function () {
       const fontDest = repo.fontDestDir;
-      expect(fontDest).toBe('themes/custom/inviqa/assets/dist/fonts')
+      expect(fontDest).toBe('themes/custom/inviqa/assets/dist/fonts');
     });
 
   })
@@ -79,7 +79,7 @@ describe("configRepository", function () {
 
     it('gets the image destination directory', function () {
       const imageDest = repo.imageDestDir;
-      expect(imageDest).toBe('themes/custom/inviqa/assets/dist/images')
+      expect(imageDest).toBe('themes/custom/inviqa/assets/dist/images');
     });
 
   })
