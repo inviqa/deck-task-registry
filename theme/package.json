@@ -1,0 +1,45 @@
+{
+  "name": "drupal-theme-tools",
+  "version": "1.0.0",
+  "description": "Theme toolchain for Inviqa Drupal projects.",
+  "author": "Matt Chapman <mchapman@inviqa.com>",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "jasmine": "node ./spec/support/runner.js",
+    "lint": "node_modules/.bin/eslint .",
+    "test": "npm run jasmine && npm run lint --silent"
+  },
+  "keywords": [
+    "drupal"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "autoprefixer": "^6.4.0",
+    "del": "^2.2.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^6.1.1",
+    "gulp-typescript": "^2.13.6",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "merge-stream": "^1.0.0",
+    "minimist": "^1.2.0",
+    "tslint": "^3.15.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-jasmine": "^1.8.1",
+    "eslint-plugin-node": "^2.0.0",
+    "jasmine": "^2.4.1",
+    "jasmine-spec-reporter": "^2.7.0",
+    "yeoman-assert": "^2.2.1"
+  },
+  "private": true
+}
