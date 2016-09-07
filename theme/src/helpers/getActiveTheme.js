@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = (args, conf) => {
+const gutil = require('gulp-util');
 
-  const gutil = require('gulp-util');
+module.exports = (args, conf) => {
 
   let theme = args.theme || conf.defaultTheme;
 
