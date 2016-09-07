@@ -1,9 +1,10 @@
 'use strict';
 
+const path = require('path');
+
 class configRepository {
 
   constructor(conf) {
-    this.path = require('path');
     this.conf = conf;
   }
 
@@ -56,14 +57,14 @@ class configRepository {
   }
 
   getSourceDir(type) {
-    return this.path.join(
+    return path.join(
       this.activeThemeConf.root,
       this.activeThemeConf[type].src
     );
   }
 
   getDestDir(type) {
-    return this.path.join(
+    return path.join(
       this.activeThemeConf.root,
       this.activeThemeConf[type].dest
     );
