@@ -7,8 +7,9 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "node ./spec/support/runner.js",
-    "lint": "node_modules/.bin/eslint .; exit 0"
+    "jasmine": "node ./spec/support/runner.js",
+    "lint": "node_modules/.bin/eslint .",
+    "test": "npm run jasmine && npm run lint --silent"
   },
   "keywords": [
     "drupal"
