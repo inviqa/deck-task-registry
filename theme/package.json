@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "node ./spec/support/runner.js",
-    "lint": "node_modules/.bin/eslint ./src/**/*.js; exit 0"
+    "lint": "node_modules/.bin/eslint .; exit 0"
   },
   "keywords": [
     "drupal"

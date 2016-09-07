@@ -18,6 +18,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "node/no-unpublished-require": [0]
+    "node/no-unpublished-require": [0],
+    "semi": ["error", "always"]
   }
 }
