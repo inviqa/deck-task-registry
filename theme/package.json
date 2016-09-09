@@ -9,7 +9,7 @@
   "scripts": {
     "jasmine": "node ./spec/support/runner.js",
     "lint": "node_modules/.bin/eslint .",
-    "test": "npm run jasmine && npm run lint --silent"
+    "test": "npm run jasmine && npm run lint"
   },
   "keywords": [
     "drupal"
@@ -17,6 +17,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "autoprefixer": "^6.4.0",
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.8.0",
     "del": "^2.2.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.0",
@@ -35,8 +37,7 @@
     "tslint": "^3.15.1"
   },
   "devDependencies": {
-    "eslint-plugin-jasmine": "^1.8.1",
-    "eslint-plugin-node": "^2.0.0",
+    "eslint": "^3.4.0",
     "jasmine": "^2.4.1",
     "jasmine-spec-reporter": "^2.7.0",
     "yeoman-assert": "^2.2.1"

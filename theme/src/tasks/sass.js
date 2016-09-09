@@ -9,7 +9,12 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = conf => () => {
 
-  const sassConfig = {};
+  const sassConfig = {
+    includePaths: [
+      require('bourbon').includePaths,
+      require('bourbon-neat').includePaths
+    ]
+  };
 
   if (conf.isProduction) {
     sassConfig.outputStyle = 'compressed';
