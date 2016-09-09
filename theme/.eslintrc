@@ -1,24 +1,17 @@
 {
   "env": {
-    "jasmine": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "jasmine": true
   },
-  "plugins": [
-    "node",
-    "jasmine"
-  ],
   "extends": [
-    "eslint:recommended",
-    "plugin:node/recommended",
-    "plugin:jasmine/recommended"
+    "eslint:recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
   },
   "rules": {
-    "node/no-unpublished-require": [0],
     "semi": ["error", "always"]
   }
 }
