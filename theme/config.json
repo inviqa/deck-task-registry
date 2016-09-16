@@ -12,7 +12,8 @@
       },
       "js": {
         "src": "assets/src/js",
-        "dest": "assets/dist/js"
+        "dest": "assets/dist/js",
+        "optimise": true
       },
       "fonts": {
         "src": "assets/src/fonts",
