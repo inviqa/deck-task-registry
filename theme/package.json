@@ -7,9 +7,9 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "jasmine": "node ./spec/support/runner.js",
     "lint": "node_modules/.bin/eslint .",
-    "test": "npm run jasmine && npm run lint"
+    "mocha": "node_modules/.bin/mocha test/spec/**/*.js",
+    "test": "npm run lint --silent && npm run mocha --silent"
   },
   "keywords": [
     "drupal"
@@ -39,6 +39,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.4.0",
+    "lodash.clonedeep": "^4.5.0",
     "mocha": "^3.0.2"
   },
   "private": true
