@@ -12,6 +12,10 @@ class configRepository {
     return this.args.theme || this.config.defaultTheme;
   }
 
+  get themeConfig() {
+    return this.config.themes[this.activeTheme];
+  }
+
 }
 
 module.exports = configRepository;

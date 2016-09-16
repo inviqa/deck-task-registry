@@ -1,8 +1,8 @@
 {
   "defaultTheme": "deck",
   "themes": {
-    "inviqa": {
-      "root": "../../web/themes/custom/inviqa",
+    "deck": {
+      "root": "../../web/themes/custom/deck",
       "sass": {
         "src": "assets/src/sass",
         "dest": "assets/dist/css",
@@ -23,6 +23,9 @@
         "src": "assets/src/images",
         "dest": "assets/dist/images"
       }
+    },
+    "inviqa": {
+      "root": "../../web/themes/custom/deck"
     }
   }
 }

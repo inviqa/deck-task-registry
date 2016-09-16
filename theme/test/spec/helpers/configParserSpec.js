@@ -7,23 +7,32 @@ const cloneDeep = require('lodash.clonedeep');
 
 // Test subjects.
 const config = require('../../fixtures/config.json');
-const configRepo = require('../../../src/helpers/configRepository');
+const configParser = require('../../../src/helpers/configParser');
 
-describe('configRepository', () => {
+describe('configParser', () => {
 
   describe('settings via config file', () => {
 
-    let repo;
+    let parser;
 
     beforeEach(() => {
 
-      repo = new configRepo(config);
+      parser = new configParser(config);
 
     });
 
-    it('should get the active theme', () => {
+    it('gets the active theme', () => {
 
-      expect(repo.activeTheme).to.equal('deck');
+      expect(parser.activeTheme).to.equal('deck');
+
+    });
+
+
+    it('gets the active theme configuration', () => {
+
+      const themeConfigFixture = config.themes.deck;
+
+      expect(parser.themeConfig).to.equal(themeConfigFixture);
 
     });
 
@@ -46,7 +55,7 @@ describe('configRepository', () => {
         '--theme=inviqa'
       ];
 
-      repo = new configRepo(config);
+      repo = new configParser(config);
 
     });
 
@@ -60,6 +69,14 @@ describe('configRepository', () => {
     it('should allow for an active theme to be passed on the command line', () => {
 
       expect(repo.activeTheme).to.equal('inviqa');
+
+    });
+
+    it('gets the active theme configuration', () => {
+
+      const themeConfigFixture = config.themes.inviqa;
+
+      expect(repo.themeConfig).to.equal(themeConfigFixture);
 
     });
 
