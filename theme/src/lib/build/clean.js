@@ -5,10 +5,10 @@ const del = require('del');
 module.exports = conf => () => {
 
   const deletePaths = [
-    conf.sassDestDir,
-    conf.jsDestDir,
-    conf.imageDestDir,
-    conf.fontDestDir
+    conf.themeConfig.sass.dest,
+    conf.themeConfig.js.dest,
+    conf.themeConfig.images.dest,
+    conf.themeConfig.fonts.dest
   ];
 
   // Delete all build dirs.

@@ -16,10 +16,13 @@ module.exports = conf => () => {
     mangle: false
   };
 
+  const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.[jt]s');
+  const jsDest = path.join(conf.themeConfig.root, conf.themeConfig.js.dest);
+
   // Build the theme scripts.
-  return gulp.src(path.join(conf.jsSourceDir, '**', '*.[jt]s'))
+  return gulp.src(jsSrc)
     .pipe(typescript(tsConf))
     .pipe(gulpIf(conf.isProduction, uglify(uglifyConf)))
-    .pipe(gulp.dest(conf.jsDestDir));
+    .pipe(gulp.dest(jsDest));
 
 };

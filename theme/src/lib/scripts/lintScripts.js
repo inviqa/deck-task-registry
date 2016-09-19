@@ -10,8 +10,11 @@ const path = require('path');
 
 module.exports = conf => () => {
 
-// Lint theme scripts with ESLint. This won't touch any TypeScript files.
-  const jsLint = gulp.src(path.join(conf.jsSourceDir, '**', '*.js'))
+  const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.js');
+  const tsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.ts');
+
+  // Lint theme scripts with ESLint. This won't touch any TypeScript files.
+  const jsLint = gulp.src(jsSrc)
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(gulpIf(conf.isProduction, eslint.failAfterError()));
@@ -23,10 +26,9 @@ module.exports = conf => () => {
     reporterOptions.emitError = false;
   }
 
-  const tsLint = gulp.src(path.join(conf.jsSourceDir, '**', '*.js'))
+  const tsLint = gulp.src(tsSrc)
     .pipe(tslint())
     .pipe(tslint.report(reporterOptions));
-
 
   // Merge the streams to we only return once all tasks have completed.
   return merge(jsLint, tsLint);
