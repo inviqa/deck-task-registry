@@ -3,6 +3,13 @@
 const configParser = require('./config/configParser');
 const gulp = require('gulp');
 const conf = new configParser(require('../../config'));
+const gutil = require('gulp-util');
+
+if (conf.productionMode) {
+  gutil.log(gutil.colors.magenta('---------------------------'));
+  gutil.log(gutil.colors.magenta('Running in production mode.'));
+  gutil.log(gutil.colors.magenta('---------------------------'));
+}
 
 /**
  * SASS TASKS
