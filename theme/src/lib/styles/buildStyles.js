@@ -34,7 +34,7 @@ module.exports = conf => () => {
   return gulp.src(path.join(conf.themeConfig.root, conf.themeConfig.sass.src, '**', '*.scss'))
     .pipe(gulpIf(!conf.isProduction, sourcemaps.init()))
     .pipe(sass(sassConfig).on('error', sass.logError))
-    // .pipe(postcss(postCSSConf))
+    .pipe(postcss(postCSSConf))
     .pipe(gulpIf(!conf.isProduction, sourcemaps.write('.')))
     .pipe(gulp.dest(path.join(conf.themeConfig.root, conf.themeConfig.sass.dest)));
 

@@ -37,8 +37,10 @@ describe('buildStyles', () => {
       buildStyles(parser)();
     });
 
-    afterEach(() => {
-      del('./tests/fixtures/assets/dist');
+    afterEach((done) => {
+      del('./test/fixtures/assets/dist', {force: true}).then(() => {
+        done();
+      });
     });
 
     it('builds readable CSS', () => {
