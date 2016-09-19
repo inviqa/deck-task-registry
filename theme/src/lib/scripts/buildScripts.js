@@ -23,7 +23,7 @@ module.exports = conf => () => {
   // Build the theme scripts.
   return gulp.src(jsSrc)
     .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
-    .pipe(typescript(tsConf))
+    .pipe(gulpIf(conf.themeConfig.js.optimise(typescript(tsConf))))
     .pipe(gulpIf(conf.productionMode, uglify(uglifyConf)))
     .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
     .pipe(gulp.dest(jsDest));
