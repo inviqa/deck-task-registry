@@ -17,12 +17,12 @@ module.exports = conf => () => {
   const jsLint = gulp.src(jsSrc)
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(gulpIf(conf.isProduction, eslint.failAfterError()));
+    .pipe(gulpIf(conf.productionMode, eslint.failAfterError()));
 
   // Lint all TypeScript files.
   const reporterOptions = {};
 
-  if (conf.isProduction) {
+  if (!conf.productionMode) {
     reporterOptions.emitError = false;
   }
 
