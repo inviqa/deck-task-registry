@@ -1,17 +1,18 @@
 'use strict';
 
 const del = require('del');
+const path = require('path');
 
 module.exports = conf => () => {
 
   const deletePaths = [
-    conf.themeConfig.sass.dest,
-    conf.themeConfig.js.dest,
-    conf.themeConfig.images.dest,
-    conf.themeConfig.fonts.dest
+    path.join(conf.themeConfig.root, conf.themeConfig.sass.dest),
+    path.join(conf.themeConfig.root, conf.themeConfig.js.dest),
+    path.join(conf.themeConfig.root, conf.themeConfig.images.dest),
+    path.join(conf.themeConfig.root, conf.themeConfig.fonts.dest)
   ];
 
   // Delete all build dirs.
-  return del(deletePaths, {force: true});
+  return del(deletePaths, { force: true });
 
 };
