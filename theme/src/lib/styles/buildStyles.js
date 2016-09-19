@@ -30,12 +30,15 @@ module.exports = conf => () => {
     })
   ];
 
+  const sassSrc = path.join(conf.themeConfig.root, conf.themeConfig.sass.src, '**', '*.scss');
+  const sassDest = path.join(conf.themeConfig.root, conf.themeConfig.sass.dest);
+
   // The task itself.
-  return gulp.src(path.join(conf.themeConfig.root, conf.themeConfig.sass.src, '**', '*.scss'))
+  return gulp.src(sassSrc)
     .pipe(gulpIf(!conf.isProduction, sourcemaps.init()))
     .pipe(sass(sassConfig).on('error', sass.logError))
     .pipe(postcss(postCSSConf))
     .pipe(gulpIf(!conf.isProduction, sourcemaps.write('.')))
-    .pipe(gulp.dest(path.join(conf.themeConfig.root, conf.themeConfig.sass.dest)));
+    .pipe(gulp.dest(sassDest));
 
 };
