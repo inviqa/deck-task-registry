@@ -115,12 +115,13 @@ loader available with these tools at this time**.
 
 #### lint:scripts
 
-Lints your scripts using ESLint and TSLint (is using TypeScript). Configuration
-files are loaded by searching parent directories relative to the scripts being
-linted, so generally if you want to override them - simply place a
-configuration file in your theme directory. In no `.eslintrc` file is provided;
-ESLint will use the default configuration that ships with Drupal (if using Drupal
-8). If you're writing ES2015; you'll also want a custom `.eslintrc` file.
+Lints your scripts using [ESLint][eslint] and [TSLint][tslint] (if using
+TypeScript). Configuration files are loaded by searching parent directories
+relative to the scripts being linted, so generally if you want to override them
+- simply place a configuration file in your theme directory. In no `.eslintrc`
+file is provided; ESLint will use the default configuration that ships with
+Drupal (if using Drupal 8). If you're writing ES2015; you'll also want a custom
+ `.eslintrc` file.
 
 **Development mode**
 
@@ -132,8 +133,46 @@ ESLint will use the default configuration that ships with Drupal (if using Drupa
 
 ### Images
 
+#### build:images
+
+Compress and optimise all images.
+
+There are no differences between development and production mode for this task.
+
 ### Fonts
+
+Copy all fonts found in the `src` directory to the `dest` directory.
+
+There are no differences between development and production mode for this task.
 
 ### Build
 
+#### build:clean
+
+Remove any and all assets from the destination directory of each resource type.
+
+There are no differences between development and production mode for this task.
+
+#### build
+
+Run any linting and testing tasks, and then run build tasks providing the test
+tasks complete. At the time of writing, the task breakdown is as follows. Note;
+all tasks on the same level are run in parallel. Different levels denote series
+based tasks.
+
+- `build:clean`
+  - `lint:scripts`
+    - `build:scripts`
+    - `build:styles`
+    - `build:images`
+    - `build:fonts`
+
+**Development/production mode**
+
+- All development mode settings for each individual task apply as they are run.
+  For example, in development mode; sourcemaps are generated, and the output is
+  not compressed for scripts and styles.
+
 [autoprefixer]: https://github.com/postcss/autoprefixer
+[eslint]: http://eslint.org/
+[tslint]: https://palantir.github.io/tslint/
