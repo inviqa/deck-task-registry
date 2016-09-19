@@ -5,6 +5,7 @@ const path = require('path');
 const typescript = require('gulp-typescript');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
+const sourcemaps = require('gulp-sourcemaps');
 
 module.exports = conf => () => {
 
@@ -21,8 +22,10 @@ module.exports = conf => () => {
 
   // Build the theme scripts.
   return gulp.src(jsSrc)
+    .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
     .pipe(typescript(tsConf))
-    .pipe(gulpIf(conf.isProduction, uglify(uglifyConf)))
+    .pipe(gulpIf(conf.productionMode, uglify(uglifyConf)))
+    .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
     .pipe(gulp.dest(jsDest));
 
 };

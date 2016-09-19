@@ -7,7 +7,7 @@
         "src": "assets/src/sass",
         "dest": "assets/dist/css",
         "browserSupport": [
-          "last two versions"
+          "last 2 versions"
         ]
       },
       "js": {

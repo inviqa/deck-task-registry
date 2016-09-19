@@ -19,7 +19,7 @@ module.exports = conf => () => {
   };
 
   // If we're in production mode, then compress the output CSS.
-  if (conf.isProduction) {
+  if (conf.productionMode) {
     sassConfig.outputStyle = 'compressed';
   }
 
@@ -35,10 +35,10 @@ module.exports = conf => () => {
 
   // The task itself.
   return gulp.src(sassSrc)
-    .pipe(gulpIf(!conf.isProduction, sourcemaps.init()))
+    .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
     .pipe(sass(sassConfig).on('error', sass.logError))
     .pipe(postcss(postCSSConf))
-    .pipe(gulpIf(!conf.isProduction, sourcemaps.write('.')))
+    .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
     .pipe(gulp.dest(sassDest));
 
 };
