@@ -1,5 +1,7 @@
 # Drupal theme tools
 
+![codeship status][codeship-badge]
+
 <!-- TOC depthFrom:2 depthTo:3 -->
 
 - [Overview](#overview)
@@ -183,6 +185,7 @@ based tasks.
   special circumstances.
 - Document your changes.
 
+[codeship-badge]: https://codeship.com/projects/079634a0-4cf5-0134-4c08-7e829346aa02/status?branch=master
 [autoprefixer]: https://github.com/postcss/autoprefixer
 [eslint]: http://eslint.org/
 [tslint]: https://palantir.github.io/tslint/
