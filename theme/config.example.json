@@ -7,12 +7,13 @@
         "src": "assets/src/sass",
         "dest": "assets/dist/css",
         "browserSupport": [
-          "last two versions"
+          "last 2 versions"
         ]
       },
       "js": {
         "src": "assets/src/js",
-        "dest": "assets/dist/js"
+        "dest": "assets/dist/js",
+        "optimise": true
       },
       "fonts": {
         "src": "assets/src/fonts",

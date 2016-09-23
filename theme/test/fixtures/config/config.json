@@ -1,15 +1,19 @@
 {
-  "defaultTheme": "inviqa",
+  "defaultTheme": "deck",
   "themes": {
-    "inviqa": {
-      "root": "themes/custom/inviqa",
+    "deck": {
+      "root": "../../web/themes/custom/deck",
       "sass": {
         "src": "assets/src/sass",
-        "dest": "assets/dist/css"
+        "dest": "assets/dist/css",
+        "browserSupport": [
+          "last two versions"
+        ]
       },
       "js": {
         "src": "assets/src/js",
-        "dest": "assets/dist/js"
+        "dest": "assets/dist/js",
+        "optimise": true
       },
       "fonts": {
         "src": "assets/src/fonts",
@@ -19,6 +23,9 @@
         "src": "assets/src/images",
         "dest": "assets/dist/images"
       }
+    },
+    "inviqa": {
+      "root": "../../web/themes/custom/deck"
     }
   }
 }

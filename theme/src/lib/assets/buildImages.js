@@ -15,8 +15,11 @@ module.exports = conf => () => {
     ]
   };
 
-  return gulp.src(path.join(conf.imageSourceDir, '**', '*'))
+  const imageSrc = path.join(conf.themeConfig.root, conf.themeConfig.images.src, '**', '*');
+  const imageDest = path.join(conf.themeConfig.root, conf.themeConfig.images.dest);
+
+  return gulp.src(imageSrc)
     .pipe(imagemin(imageMinConfig))
-    .pipe(gulp.dest(conf.imageDestDir));
+    .pipe(gulp.dest(imageDest));
 
 };
