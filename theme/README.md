@@ -16,6 +16,7 @@
   - [Images](#images)
   - [Fonts](#fonts)
   - [Build](#build)
+- [Contribution](#contribution)
 
 <!-- /TOC -->
 
@@ -172,6 +173,15 @@ based tasks.
 - All development mode settings for each individual task apply as they are run.
   For example, in development mode; sourcemaps are generated, and the output is
   not compressed for scripts and styles.
+
+## Contribution
+
+- Ensure there are tests where possible
+- In lieu of a formal styleguide; follow existing formatting, and ensure ESLint
+  doesn't fail.
+- Pull requests must be reviewed by at least one third party unless there are
+  special circumstances.
+- Document your changes.
 
 [autoprefixer]: https://github.com/postcss/autoprefixer
 [eslint]: http://eslint.org/
