@@ -12,8 +12,7 @@ module.exports = conf => () => {
    * STYLE WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
-    ['build:styles']
+    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'), ['build:styles']
   );
 
   /**
@@ -31,20 +30,14 @@ module.exports = conf => () => {
    * IMAGE WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.images.src, '**', '*'),
-    runSequence(
-      'build:images'
-    )
+    path.join(root, conf.themeConfig.images.src, '**', '*'), ['build:images']
   );
 
   /**
    * FONT WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.fonts.src, '**', '*'),
-    runSequence(
-      'build:fonts'
-    )
+    path.join(root, conf.themeConfig.fonts.src, '**', '*'), ['build:fonts']
   );
 
 };
