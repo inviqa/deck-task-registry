@@ -3,3 +3,4 @@ typings
 coverage
 
 tests/fixtures/assets/dist
+config.json
