@@ -12,7 +12,8 @@
     "gulp-util": "registry:dt/gulp-util#0.0.0+20160316155526",
     "merge-stream": "registry:dt/merge-stream#1.0.0+20160313224417",
     "minimist": "registry:dt/minimist#1.1.3+20160317120654",
-    "node": "registry:dt/node#6.0.0+20160915134512"
+    "node": "registry:dt/node#6.0.0+20160915134512",
+    "typescript": "registry:dt/typescript#0.4.0+20160317120654"
   },
   "globalDevDependencies": {
     "chai": "registry:dt/chai#3.4.0+20160601211834",
