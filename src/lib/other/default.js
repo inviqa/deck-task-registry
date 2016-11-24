@@ -1,9 +1,9 @@
 'use strict';
 
-const gulp = require('gulp');
+const runSequence = require('run-sequence');
 
 module.exports = () => {
 
-  return gulp.series('build', 'watch');
+  return runSequence('build', 'watch');
 
 };

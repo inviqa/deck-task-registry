@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const path = require('path');
+const runSequence = require('run-sequence');
 
 module.exports = conf => () => {
 
@@ -12,9 +13,7 @@ module.exports = conf => () => {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
-    gulp.parallel(
-      'build:styles'
-    )
+    ['build:styles']
   );
 
   /**
@@ -22,7 +21,7 @@ module.exports = conf => () => {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.js.src, '**', '*.[jt]s'),
-    gulp.series(
+    runSequence(
       'lint:scripts',
       'build:scripts'
     )
@@ -33,7 +32,7 @@ module.exports = conf => () => {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.images.src, '**', '*'),
-    gulp.series(
+    runSequence(
       'build:images'
     )
   );
@@ -43,7 +42,7 @@ module.exports = conf => () => {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.fonts.src, '**', '*'),
-    gulp.series(
+    runSequence(
       'build:fonts'
     )
   );
