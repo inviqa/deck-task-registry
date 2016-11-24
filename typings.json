@@ -4,6 +4,8 @@
     "gulp": "registry:dt/gulp#3.8.0+20160907112908",
     "gulp-concat": "registry:dt/gulp-concat#0.0.0+20160316155526",
     "gulp-if": "registry:dt/gulp-if#0.0.0+20160316155526",
+    "gulp-rename": "registry:dt/gulp-rename#0.0.0+20160817204333",
+    "gulp-replace": "registry:dt/gulp-replace#0.0.0+20160316155526",
     "gulp-sass": "registry:dt/gulp-sass#0.0.0+20160316155526",
     "gulp-sourcemaps": "registry:dt/gulp-sourcemaps#0.0.0+20160316155526",
     "gulp-uglify": "registry:dt/gulp-uglify#0.0.0+20160826020907",
@@ -16,6 +18,7 @@
   },
   "globalDevDependencies": {
     "chai": "registry:dt/chai#3.4.0+20160601211834",
-    "mocha": "registry:dt/mocha#2.2.5+20160720003353"
+    "mocha": "registry:dt/mocha#2.2.5+20160720003353",
+    "mock-fs": "registry:dt/mock-fs#3.6.0+20160317120654"
   }
 }
