@@ -33,6 +33,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
+    "inquirer": "^1.2.3",
     "merge-stream": "^1.0.0",
     "minimist": "^1.2.0",
     "run-sequence": "^1.2.2",
@@ -47,7 +48,9 @@
     "lodash.clonedeep": "^4.5.0",
     "mocha": "^3.0.2",
     "mock-fs": "^3.12.1",
-    "proxyquire": "^1.7.10"
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0"
   },
   "private": true
 }

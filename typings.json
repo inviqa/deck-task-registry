@@ -10,6 +10,7 @@
     "gulp-sourcemaps": "registry:dt/gulp-sourcemaps#0.0.0+20160316155526",
     "gulp-uglify": "registry:dt/gulp-uglify#0.0.0+20160826020907",
     "gulp-util": "registry:dt/gulp-util#0.0.0+20160316155526",
+    "inquirer": "registry:dt/inquirer#0.0.0+20161101124102",
     "merge-stream": "registry:dt/merge-stream#1.0.0+20160313224417",
     "minimist": "registry:dt/minimist#1.1.3+20160317120654",
     "node": "registry:dt/node#6.0.0+20161110151007",
@@ -20,6 +21,8 @@
     "chai": "registry:dt/chai#3.4.0+20160601211834",
     "mocha": "registry:dt/mocha#2.2.5+20161028141524",
     "mock-fs": "registry:dt/mock-fs#3.6.0+20160317120654",
-    "proxyquire": "registry:dt/proxyquire#1.3.0+20160316155526"
+    "proxyquire": "registry:dt/proxyquire#1.3.0+20160316155526",
+    "sinon": "registry:dt/sinon#1.16.0+20160924120326",
+    "sinon-chai": "registry:dt/sinon-chai#2.7.0+20160317120654"
   }
 }
