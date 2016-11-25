@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const path = require('path');
+const runSequence = require('run-sequence');
 
 module.exports = conf => () => {
 
@@ -11,10 +12,7 @@ module.exports = conf => () => {
    * STYLE WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
-    gulp.parallel(
-      'build:styles'
-    )
+    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'), ['build:styles']
   );
 
   /**
@@ -22,7 +20,7 @@ module.exports = conf => () => {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.js.src, '**', '*.[jt]s'),
-    gulp.series(
+    runSequence(
       'lint:scripts',
       'build:scripts'
     )
@@ -32,20 +30,14 @@ module.exports = conf => () => {
    * IMAGE WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.images.src, '**', '*'),
-    gulp.series(
-      'build:images'
-    )
+    path.join(root, conf.themeConfig.images.src, '**', '*'), ['build:images']
   );
 
   /**
    * FONT WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.fonts.src, '**', '*'),
-    gulp.series(
-      'build:fonts'
-    )
+    path.join(root, conf.themeConfig.fonts.src, '**', '*'), ['build:fonts']
   );
 
 };
