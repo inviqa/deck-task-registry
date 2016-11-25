@@ -20,7 +20,7 @@ module.exports = conf => () => {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.js.src, '**', '*.[jt]s'),
-    runSequence(
+    gulp.series(
       'lint:scripts',
       'build:scripts'
     )

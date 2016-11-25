@@ -1,13 +1,13 @@
 'use strict';
 
-const runSequence = require('run-sequence');
+const gulp = require('gulp');
 
 module.exports = () => (cb) => {
 
-  return runSequence(
+  return gulp.series(
     'build:clean',
     'lint:scripts',
-    ['build:styles', 'build:scripts', 'build:images', 'build:fonts'],
+    gulp.parallel('build:styles', 'build:scripts', 'build:images', 'build:fonts'),
     cb
   );
 
