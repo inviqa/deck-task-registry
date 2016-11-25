@@ -20,6 +20,7 @@
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
     "del": "^2.2.1",
+    "findit": "^2.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^3.0.1",
