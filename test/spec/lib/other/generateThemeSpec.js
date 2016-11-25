@@ -1,7 +1,6 @@
 'use strict';
 
 const mock = require('mock-fs');
-const generateTheme = require('../../../../src/lib/other/generateTheme')();
 const chai = require('chai');
 const chaiFiles = require('chai-files');
 const expect = chai.expect;
@@ -9,10 +8,20 @@ const expect = chai.expect;
 chai.use(chaiFiles);
 const file = chaiFiles.file;
 const dir = chaiFiles.dir;
+const proxyquire = require('proxyquire').noCallThru();
+const generateTheme = proxyquire('../../../../src/lib/other/generateTheme', {
+  '../helpers/findRoot': function () {
+    return '../docroot';
+  }
+})();
 
 describe('generateTheme', function () {
 
+  // The generator os slow, even with a mocked Drupal root finder :(.
+  this.timeout(0);
+
   beforeEach(function () {
+
     mock({
       '../docroot': {
         'themes': {
@@ -23,10 +32,17 @@ describe('generateTheme', function () {
                 'SUBTHEME.libraries.yml': '',
                 'SUBTHEME.theme': '<?php',
                 'assets': {
-                  'js': '.gitkeep',
-                  'scss': '.gitkeep',
-                  'images': '.gitkeep',
-                  'fonts': '.gitkeep'
+                  'src': {
+                    'js': {
+                      '.gitkeep': ''
+                    },
+                    'sass': {
+                      'main.scss': '.foo {color: red};'
+                    },
+                    'fonts': {
+                      '.gitkeep': ''
+                    }
+                  }
                 }
               },
             }
@@ -41,7 +57,9 @@ describe('generateTheme', function () {
   });
 
   it('throws an error if Deck doesn\'t exist', function () {
+
     mock.restore();
+
     mock({
       '../docroot': {
         'themes': {
@@ -52,9 +70,7 @@ describe('generateTheme', function () {
       }
     });
 
-    const generator = generateTheme;
-
-    expect(generator()).to.throw(Error, 'Deck was not found.');
+    expect(generateTheme).to.throw(Error, 'Deck was not found.');
 
   });
 
@@ -84,22 +100,15 @@ describe('generateTheme', function () {
 
     generator.on('finish', function () {
 
-      const assetsDir = dir('../docroot/themes/custom/test/assets');
-      const sassDir = dir('../docroot/themes/custom/test/assets/scss');
-      const jsDir = dir('../docroot/themes/custom/test/assets/js');
-      const fontsDir = dir('../docroot/themes/custom/test/assets/fonts');
-      const imagesDir = dir('../docroot/themes/custom/test/assets/images');
-
-      require('fs').readdir('../docroot/themes/custom/test/assets', function (err, files) {
-        console.log(files);
-      });
+      const assetsDir = dir('../docroot/themes/custom/test/assets/src');
+      const sassDir = file('../docroot/themes/custom/test/assets/src/sass/main.scss');
+      const jsDir = file('../docroot/themes/custom/test/assets/src/js/.gitkeep');
+      const fontsDir = file('../docroot/themes/custom/test/assets/src/fonts/.gitkeep');
 
       expect(assetsDir).to.exist;
       expect(sassDir).to.exist;
       expect(jsDir).to.exist;
       expect(fontsDir).to.exist;
-      expect(imagesDir).to.exist;
-
 
       done();
 
