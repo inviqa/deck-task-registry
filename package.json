@@ -37,6 +37,7 @@
     "merge-stream": "^1.0.0",
     "minimist": "^1.2.0",
     "run-sequence": "^1.2.2",
+    "transliteration": "^1.1.14",
     "tslint": "^3.15.1",
     "typescript": "^2.0.10"
   },

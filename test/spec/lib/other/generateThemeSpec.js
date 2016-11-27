@@ -19,8 +19,15 @@ describe('generateTheme', function () {
 
   // The generator os slow, even with a mocked Drupal root finder :(.
   this.timeout(0);
+  let originalArgs = process.argv;
 
   beforeEach(function () {
+
+    process.argv = [
+      'foo',
+      'bar',
+      '--theme=test'
+    ];
 
     mock({
       '../docroot': {
@@ -53,6 +60,7 @@ describe('generateTheme', function () {
   });
 
   afterEach(function () {
+    process.argv = originalArgs;
     mock.restore();
   });
 
