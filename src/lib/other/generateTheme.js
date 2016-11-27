@@ -7,7 +7,7 @@ const rename = require('gulp-rename');
 const merge = require('merge-stream');
 const fs = require('fs');
 const minimist = require('minimist');
-const trans = require('transliteration');
+const slugify = require('transliteration').slugify;
 
 module.exports = () => () => {
 
@@ -23,7 +23,7 @@ module.exports = () => () => {
     throw new Error('You didn\'t give me a name.');
   }
 
-  settings.machineName = trans.slugify(settings.theme);
+  settings.machineName = slugify(settings.theme);
 
   const drupalRoot = findRoot();
   const deckRoot = path.join(drupalRoot, 'themes', 'contrib', 'deck', 'subtheme');
@@ -36,7 +36,7 @@ module.exports = () => () => {
   }
 
   // Build out the subtheme.
-  const newThemeDest = path.join(drupalRoot, 'themes', 'custom', settings.theme);
+  const newThemeDest = path.join(drupalRoot, 'themes', 'custom', settings.machineName);
 
   const srcOpts = {
     dot: true
@@ -46,7 +46,7 @@ module.exports = () => () => {
   const coreFileBuilder = gulp.src(path.join(deckRoot, '*.{yml,theme}'), srcOpts)
     .pipe(
       rename(function (path) {
-        path.basename = path.basename.replace('SUBTHEME', settings.theme);
+        path.basename = path.basename.replace('SUBTHEME', settings.machineName);
       })
     )
     .pipe(gulp.dest(newThemeDest));

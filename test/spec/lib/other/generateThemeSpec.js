@@ -12,6 +12,12 @@ const proxyquire = require('proxyquire').noCallThru();
 const generateTheme = proxyquire('../../../../src/lib/other/generateTheme', {
   '../helpers/findRoot': function () {
     return '../docroot';
+  },
+  'transliteration': {
+    'slugify': function () {
+      // We have to mock this as it doesn't seem to work properly in tests.
+      return 'test';
+    }
   }
 })();
 
@@ -26,7 +32,7 @@ describe('generateTheme', function () {
     process.argv = [
       'foo',
       'bar',
-      '--theme=test'
+      '--theme=Test'
     ];
 
     mock({
@@ -97,6 +103,20 @@ describe('generateTheme', function () {
       expect(themeFile).to.exist;
 
       done();
+
+    });
+
+  });
+
+  it('replaces placeholders in core files', function () {
+
+    const generator = generateTheme();
+
+    generator.on('finish', function () {
+
+      const infoFile = file('../docroot/themes/custom/test/test.info.yml');
+
+      expect(infoFile).to.contain();
 
     });
 
