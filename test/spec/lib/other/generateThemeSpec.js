@@ -4,6 +4,7 @@ const mock = require('mock-fs');
 const chai = require('chai');
 const chaiFiles = require('chai-files');
 const expect = chai.expect;
+const getFixture = require('../../../fixtures/getFixture');
 
 chai.use(chaiFiles);
 const file = chaiFiles.file;
@@ -24,7 +25,7 @@ const generateTheme = proxyquire('../../../../src/lib/other/generateTheme', {
 describe('generateTheme', function () {
 
   // The generator os slow, even with a mocked Drupal root finder :(.
-  this.timeout(0);
+  this.timeout(10000);
   let originalArgs = process.argv;
 
   beforeEach(function () {
@@ -41,16 +42,16 @@ describe('generateTheme', function () {
           'contrib': {
             'deck': {
               'subtheme': {
-                'SUBTHEME.info.yml': 'name: {{ SUBTHEME }}',
+                'SUBTHEME.info.yml': getFixture('subtheme/subtheme.info.yml'),
                 'SUBTHEME.libraries.yml': '',
-                'SUBTHEME.theme': '<?php',
+                'SUBTHEME.theme': getFixture('subtheme/subtheme.theme'),
                 'assets': {
                   'src': {
                     'js': {
                       '.gitkeep': ''
                     },
                     'sass': {
-                      'main.scss': '.foo {color: red};'
+                      'main.scss': getFixture('assets/src/scss/pristineSass.scss'),
                     },
                     'fonts': {
                       '.gitkeep': ''
@@ -108,7 +109,7 @@ describe('generateTheme', function () {
 
   });
 
-  it('replaces placeholders in core files', function () {
+  it('replaces placeholders in core files', function (done) {
 
     const generator = generateTheme();
 
@@ -116,7 +117,16 @@ describe('generateTheme', function () {
 
       const infoFile = file('../docroot/themes/custom/test/test.info.yml');
 
-      expect(infoFile).to.contain();
+      expect(infoFile).to.contain('name: Test');
+      expect(infoFile).to.contain('description: Theme for Test.');
+      expect(infoFile).not.to.contain('{{ SUBTHEME }}');
+
+      const themeFile = file('../docroot/themes/custom/test/test.theme');
+
+      expect(themeFile).to.contain('Functions to support the Test theme.');
+      expect(themeFile).not.to.contain('{{ SUBTHEME }}');
+
+      done();
 
     });
 

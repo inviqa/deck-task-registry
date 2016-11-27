@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const path = require('path');
 const findRoot = require('../helpers/findRoot');
 const rename = require('gulp-rename');
+const replace = require('gulp-replace');
 const merge = require('merge-stream');
 const fs = require('fs');
 const minimist = require('minimist');
@@ -44,6 +45,7 @@ module.exports = () => () => {
 
   // Copy out the core files required for the theme.
   const coreFileBuilder = gulp.src(path.join(deckRoot, '*.{yml,theme}'), srcOpts)
+    .pipe(replace('{{ SUBTHEME }}', settings.theme))
     .pipe(
       rename(function (path) {
         path.basename = path.basename.replace('SUBTHEME', settings.machineName);
