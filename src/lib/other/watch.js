@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const path = require('path');
-const runSequence = require('run-sequence');
 
 module.exports = conf => () => {
 
