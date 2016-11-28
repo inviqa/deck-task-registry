@@ -47,7 +47,8 @@
     "mock-fs": "^3.12.1",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "typings": "^2.0.0"
   },
   "private": true
 }
