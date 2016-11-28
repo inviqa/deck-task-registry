@@ -37,5 +37,6 @@ gulp.task('build', require('./build/build')(conf));
 /**
  * MISC TASKS.
  */
+gulp.task('generate-subtheme', require('./other/generateTheme')());
 gulp.task('watch', require('./other/watch')(conf));
 gulp.task('default', require('./other/default')());
