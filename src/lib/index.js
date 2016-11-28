@@ -32,7 +32,7 @@ gulp.task('build:fonts', require('./assets/buildFonts')(conf));
  * BUILD TASKS
  */
 gulp.task('build:clean', require('./build/clean')(conf));
-gulp.task('build', require('./build/build')(conf));
+gulp.task('build', require('./build/build')());
 
 /**
  * MISC TASKS.

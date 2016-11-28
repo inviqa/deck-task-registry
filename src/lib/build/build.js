@@ -2,13 +2,12 @@
 
 const gulp = require('gulp');
 
-module.exports = () => (cb) => {
+module.exports = () => {
 
   return gulp.series(
     'build:clean',
     'lint:scripts',
-    gulp.parallel('build:styles', 'build:scripts', 'build:images', 'build:fonts'),
-    cb
+    gulp.parallel('build:styles', 'build:scripts', 'build:images', 'build:fonts')
   );
 
 };
