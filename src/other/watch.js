@@ -2,6 +2,11 @@
 
 const gulp = require('gulp');
 const path = require('path');
+const lintScripts = require('../scripts/lintScripts');
+const buildStyles = require('../styles/buildStyles');
+const buildScripts = require('../scripts/buildScripts');
+const buildImages = require('../assets/buildImages');
+const buildFonts = require('../assets/buildFonts');
 
 module.exports = conf => () => {
 
@@ -11,17 +16,17 @@ module.exports = conf => () => {
    * STYLE WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'), ['build:styles']
+    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'), buildStyles(conf)
   );
 
   /**
    * SCRIPT WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.js.src, '**', '*.[jt]s'),
+    path.join(root, conf.themeConfig.js.src, '**', '*.js'),
     gulp.series(
-      'lint:scripts',
-      'build:scripts'
+      lintScripts(conf),
+      buildScripts(conf)
     )
   );
 
@@ -29,14 +34,14 @@ module.exports = conf => () => {
    * IMAGE WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.images.src, '**', '*'), ['build:images']
+    path.join(root, conf.themeConfig.images.src, '**', '*'), buildImages(conf)
   );
 
   /**
    * FONT WATCHING.
    */
   gulp.watch(
-    path.join(root, conf.themeConfig.fonts.src, '**', '*'), ['build:fonts']
+    path.join(root, conf.themeConfig.fonts.src, '**', '*'), buildFonts(conf)
   );
 
 };

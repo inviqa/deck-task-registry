@@ -1,9 +1,14 @@
 'use strict';
 
 const gulp = require('gulp');
+const build = require('../build/build');
+const watch = require('../other/watch');
 
-module.exports = () => {
+module.exports = (conf) => {
 
-  return gulp.series('build', 'watch');
+  return gulp.series(
+    build(conf),
+    watch(conf)
+  );
 
 };

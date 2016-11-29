@@ -1,13 +1,24 @@
 'use strict';
 
 const gulp = require('gulp');
+const cleanBuild = require('./clean');
+const lintScripts = require('../scripts/lintScripts');
+const buildStyles = require('../styles/buildStyles');
+const buildScripts = require('../scripts/buildScripts');
+const buildImages = require('../assets/buildImages');
+const buildFonts = require('../assets/buildFonts');
 
-module.exports = () => {
+module.exports = (conf) => {
 
   return gulp.series(
-    'build:clean',
-    'lint:scripts',
-    gulp.parallel('build:styles', 'build:scripts', 'build:images', 'build:fonts')
+    cleanBuild(conf),
+    lintScripts(conf),
+    gulp.parallel(
+      buildStyles(conf),
+      buildScripts(conf),
+      buildImages(conf),
+      buildFonts(conf)
+    )
   );
 
 };
