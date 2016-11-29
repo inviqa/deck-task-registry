@@ -10,7 +10,7 @@ chai.use(chaiFiles);
 const file = chaiFiles.file;
 const dir = chaiFiles.dir;
 const proxyquire = require('proxyquire').noCallThru();
-const generateTheme = proxyquire('../../../../src/lib/other/generateTheme', {
+const generateTheme = proxyquire('../../../../src/other/generateTheme', {
   '../helpers/findRoot': function () {
     return '../docroot';
   },
