@@ -1,11 +1,12 @@
 {
-  "name": "drupal-theme-tools",
+  "name": "inviqa-drupal-gulp-registry",
   "version": "1.0.0",
   "description": "Theme toolchain for Inviqa Drupal projects.",
   "author": "Matt Chapman <mchapman@inviqa.com>",
   "engines": {
     "node": ">=4.6.2"
   },
+  "main": "src/registry.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint .",
     "mocha": "node_modules/.bin/mocha test/spec/**/*.js",

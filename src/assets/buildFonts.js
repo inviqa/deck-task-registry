@@ -3,12 +3,22 @@
 const gulp = require('gulp');
 const path = require('path');
 
-module.exports = conf => () => {
+function buildFonts(conf) {
 
-  const fontSrc = path.join(conf.themeConfig.root, conf.themeConfig.fonts.src, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
-  const fontDest = path.join(conf.themeConfig.root, conf.themeConfig.fonts.dest);
+  function task() {
 
-  return gulp.src(fontSrc)
-    .pipe(gulp.dest(fontDest));
+    const fontSrc = path.join(conf.themeConfig.root, conf.themeConfig.fonts.src, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
+    const fontDest = path.join(conf.themeConfig.root, conf.themeConfig.fonts.dest);
 
-};
+    return gulp.src(fontSrc)
+      .pipe(gulp.dest(fontDest));
+
+  }
+
+  task.displayName = 'build:fonts';
+
+  return task;
+
+}
+
+module.exports = buildFonts;

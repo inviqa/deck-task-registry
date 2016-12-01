@@ -8,40 +8,50 @@ const buildScripts = require('../scripts/buildScripts');
 const buildImages = require('../assets/buildImages');
 const buildFonts = require('../assets/buildFonts');
 
-module.exports = conf => () => {
+function watch(conf) {
 
-  const root = conf.themeConfig.root;
+  function task() {
 
-  /**
-   * STYLE WATCHING.
-   */
-  gulp.watch(
-    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'), buildStyles(conf)
-  );
+    const root = conf.themeConfig.root;
 
-  /**
-   * SCRIPT WATCHING.
-   */
-  gulp.watch(
-    path.join(root, conf.themeConfig.js.src, '**', '*.js'),
-    gulp.series(
-      lintScripts(conf),
-      buildScripts(conf)
-    )
-  );
+    /**
+     * STYLE WATCHING.
+     */
+    gulp.watch(
+      path.join(root, conf.themeConfig.sass.src, '**', '*.scss'), buildStyles(conf)
+    );
 
-  /**
-   * IMAGE WATCHING.
-   */
-  gulp.watch(
-    path.join(root, conf.themeConfig.images.src, '**', '*'), buildImages(conf)
-  );
+    /**
+     * SCRIPT WATCHING.
+     */
+    gulp.watch(
+      path.join(root, conf.themeConfig.js.src, '**', '*.js'),
+      gulp.series(
+        lintScripts(conf),
+        buildScripts(conf)
+      )
+    );
 
-  /**
-   * FONT WATCHING.
-   */
-  gulp.watch(
-    path.join(root, conf.themeConfig.fonts.src, '**', '*'), buildFonts(conf)
-  );
+    /**
+     * IMAGE WATCHING.
+     */
+    gulp.watch(
+      path.join(root, conf.themeConfig.images.src, '**', '*'), buildImages(conf)
+    );
 
-};
+    /**
+     * FONT WATCHING.
+     */
+    gulp.watch(
+      path.join(root, conf.themeConfig.fonts.src, '**', '*'), buildFonts(conf)
+    );
+
+  }
+
+  task.displayName = 'watch';
+
+  return task;
+
+}
+
+module.exports = watch;

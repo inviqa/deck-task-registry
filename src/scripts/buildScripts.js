@@ -6,20 +6,30 @@ const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 
-module.exports = conf => () => {
+function buildScripts(conf) {
 
-  const uglifyConf = {
-    mangle: false
-  };
+  function task() {
 
-  const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.js');
-  const jsDest = path.join(conf.themeConfig.root, conf.themeConfig.js.dest);
+    const uglifyConf = {
+      mangle: false
+    };
 
-  // Build the theme scripts.
-  return gulp.src(jsSrc)
-    .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
-    .pipe(gulpIf(conf.productionMode, uglify(uglifyConf)))
-    .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
-    .pipe(gulp.dest(jsDest));
+    const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.js');
+    const jsDest = path.join(conf.themeConfig.root, conf.themeConfig.js.dest);
 
-};
+    // Build the theme scripts.
+    return gulp.src(jsSrc)
+      .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
+      .pipe(gulpIf(conf.productionMode, uglify(uglifyConf)))
+      .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
+      .pipe(gulp.dest(jsDest));
+
+  }
+
+  task.displayName = 'build:scripts';
+
+  return task;
+
+}
+
+module.exports = buildScripts;
