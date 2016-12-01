@@ -6,8 +6,6 @@ const path = require('path');
 
 function buildImages(conf) {
 
-  function task() {
-
     const imageMinConfig = {
       progressive: true,
       svgoPlugins: [{
@@ -26,12 +24,9 @@ function buildImages(conf) {
       .pipe(imagemin(imageMinConfig))
       .pipe(gulp.dest(imageDest));
 
-  }
-
-  task.displayName = 'build:images';
-
-  return task;
-
 }
+
+buildImages.displayName = 'build:images';
+
 
 module.exports = buildImages;

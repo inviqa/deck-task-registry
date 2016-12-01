@@ -50,25 +50,30 @@ class InviqaDrupalRegistry extends DefaultRegistry {
   init(undertaker) {
 
     // SASS/CSS.
-    undertaker.task('build:styles', require('./styles/buildStyles')(this.conf));
+    undertaker.task(require('./styles/buildStyles'));
 
     // SCRIPTS.
-    undertaker.task('build:scripts', require('./scripts/buildScripts')(this.conf));
-    undertaker.task('lint:scripts', require('./scripts/lintScripts')(this.conf));
+    undertaker.task(require('./scripts/buildScripts'));
+    undertaker.task(require('./scripts/lintScripts'));
 
     // OTHER ASSETS.
-    undertaker.task('build:images', require('./assets/buildImages')(this.conf));
-    undertaker.task('build:fonts', require('./assets/buildFonts')(this.conf));
-    undertaker.task('build:clean', require('./build/clean')(this.conf));
+    undertaker.task(require('./assets/buildImages'));
+    undertaker.task(require('./assets/buildFonts'));
+    undertaker.task(require('./build/clean'));
 
     // BUILD.
-    undertaker.task('build', require('./build/build')(this.conf));
+    undertaker.task(require('./build/build'));
 
     // ANCILLIARY.
-    undertaker.task('generate-subtheme', require('./other/generateTheme')());
-    undertaker.task('watch', require('./other/watch')(this.conf));
-    undertaker.task('default', require('./other/default')(this.conf));
+    undertaker.task(require('./other/generateTheme'));
+    undertaker.task(require('./other/watch'));
+    undertaker.task(require('./other/default'));
 
+  }
+
+  set(name, fn) {
+    const task = this._tasks[name] = fn.bind(null, this.conf);
+    return task;
   }
 
 }

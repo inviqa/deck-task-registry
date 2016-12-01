@@ -8,17 +8,36 @@ const buildScripts = require('../scripts/buildScripts');
 const buildImages = require('../assets/buildImages');
 const buildFonts = require('../assets/buildFonts');
 
-module.exports = (conf) => {
+function buildTask(conf) {
 
-  return gulp.series(
-    cleanBuild(conf),
-    lintScripts(conf),
-    gulp.parallel(
-      buildStyles(conf),
-      buildScripts(conf),
-      buildImages(conf),
-      buildFonts(conf)
-    )
-  );
+  function task() {
 
-};
+    return gulp.series(
+      cleanBuild(conf),
+      lintScripts(conf),
+      gulp.parallel(
+        buildStyles(conf),
+        buildScripts(conf),
+        buildImages(conf),
+        buildFonts(conf)
+      )
+    )();
+
+  }
+
+  task.displayName = 'build';
+
+  return task;
+
+}
+
+function buildTask2(conf, taker, done) {
+  gulp.series(
+    'build:clean',
+    done
+  )();
+}
+
+buildTask2.displayName = 'build';
+
+module.exports = buildTask2;

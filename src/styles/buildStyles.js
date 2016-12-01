@@ -8,15 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 
-/**
- *
- *
- * @param {any} conf
- * @returns
- */
 function buildStyles(conf) {
-
-  function task() {
 
     // Config that gets passed to node-sass.
     const sassConfig = {
@@ -48,12 +40,9 @@ function buildStyles(conf) {
       .pipe(postcss(postCSSConf))
       .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
       .pipe(gulp.dest(sassDest));
-  }
-
-  task.displayName = 'build:styles';
-
-  return task;
 
 }
+
+buildStyles.displayName = 'build:styles';
 
 module.exports = buildStyles;
