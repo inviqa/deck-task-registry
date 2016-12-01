@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "node_modules/.bin/eslint .",
     "mocha": "node_modules/.bin/mocha test/spec/**/*.js",
-    "test": "npm run lint --silent && npm run mocha --silent"
+    "test": "npm run lint --silent && npm run mocha --silent",
+    "postinstall": "node src/post-install/postInstall.js"
   },
   "keywords": [
     "drupal"
