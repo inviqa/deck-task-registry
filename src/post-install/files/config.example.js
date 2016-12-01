@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-  "defaultTheme": "test",
+  "defaultTheme": "inviqa",
   "themes": {
-    "test": {
-      "root": "../docroot/themes/custom/test",
+    "inviqa": {
+      "root": "../web/themes/custom/inviqa",
       "sass": {
         "src": "assets/src/sass",
         "dest": "assets/dist/css",
@@ -26,4 +26,4 @@ module.exports = {
       }
     }
   }
-}
+};
