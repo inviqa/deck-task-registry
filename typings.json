@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "del": "registry:dt/del#2.2.0+20160317120654",
+    "glob": "registry:dt/glob#5.0.10+20160317120654",
     "gulp": "registry:dt/gulp#3.8.0+20160907112908",
     "gulp-concat": "registry:dt/gulp-concat#0.0.0+20160316155526",
     "gulp-if": "registry:dt/gulp-if#0.0.0+20160316155526",
