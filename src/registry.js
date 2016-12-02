@@ -61,16 +61,39 @@ class InviqaDrupalRegistry extends DefaultRegistry {
     undertaker.task(require('./assets/buildFonts'));
     undertaker.task(require('./build/clean'));
 
-    // BUILD.
-    undertaker.task(require('./build/build'));
-
     // ANCILLIARY.
     undertaker.task(require('./other/generateTheme'));
     undertaker.task(require('./other/watch'));
-    undertaker.task(require('./other/default'));
+
+    // NAMED TASKS.
+    // These are required as just passing undertaker.series means that you can't flag async completion.
+    undertaker.task('build', function buildTask(conf, done) {
+      return undertaker.series(
+        'build:clean',
+        'lint:scripts',
+        undertaker.parallel(
+          'build:scripts',
+          'build:styles',
+          'build:images',
+          'build:fonts'
+        )
+      )(done);
+    });
+
+    undertaker.task('default', function defaultTask(conf, done) {
+      return undertaker.series(
+        'build',
+        'watch'
+      )(done);
+    });
 
   }
 
+  /**
+   * @inheritdoc
+   *
+   * @memberOf InviqaDrupalRegistry
+   */
   set(name, fn) {
     const task = this._tasks[name] = fn.bind(null, this.conf);
     return task;
