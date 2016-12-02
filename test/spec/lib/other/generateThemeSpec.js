@@ -20,7 +20,7 @@ const generateTheme = proxyquire('../../../../src/other/generateTheme', {
       return 'test';
     }
   }
-})();
+});
 
 describe('generateTheme', function () {
 
