@@ -42,8 +42,8 @@ describe('generateTheme', function () {
           'contrib': {
             'deck': {
               'subtheme': {
-                'SUBTHEME.info.yml': getFixture('subtheme/subtheme.info.yml'),
-                'SUBTHEME.libraries.yml': '',
+                'SUBTHEME.info.yml.tpl': getFixture('subtheme/subtheme.info.yml'),
+                'SUBTHEME.libraries.yml.tpl': '',
                 'SUBTHEME.theme': getFixture('subtheme/subtheme.theme'),
                 'assets': {
                   'src': {
