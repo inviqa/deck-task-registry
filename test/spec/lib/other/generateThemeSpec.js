@@ -10,7 +10,7 @@ chai.use(chaiFiles);
 const file = chaiFiles.file;
 const dir = chaiFiles.dir;
 const proxyquire = require('proxyquire').noCallThru();
-const generateTheme = proxyquire('../../../../src/lib/other/generateTheme', {
+const generateTheme = proxyquire('../../../../src/other/generateTheme', {
   '../helpers/findRoot': function () {
     return '../docroot';
   },
@@ -20,7 +20,7 @@ const generateTheme = proxyquire('../../../../src/lib/other/generateTheme', {
       return 'test';
     }
   }
-})();
+});
 
 describe('generateTheme', function () {
 
@@ -42,8 +42,8 @@ describe('generateTheme', function () {
           'contrib': {
             'deck': {
               'subtheme': {
-                'SUBTHEME.info.yml': getFixture('subtheme/subtheme.info.yml'),
-                'SUBTHEME.libraries.yml': '',
+                'SUBTHEME.info.yml.tpl': getFixture('subtheme/subtheme.info.yml'),
+                'SUBTHEME.libraries.yml.tpl': '',
                 'SUBTHEME.theme': getFixture('subtheme/subtheme.theme'),
                 'assets': {
                   'src': {

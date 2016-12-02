@@ -1,15 +1,17 @@
 {
-  "name": "drupal-theme-tools",
+  "name": "inviqa-drupal-task-registry",
   "version": "1.0.0",
   "description": "Theme toolchain for Inviqa Drupal projects.",
   "author": "Matt Chapman <mchapman@inviqa.com>",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.6.2"
   },
+  "main": "src/registry.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint .",
     "mocha": "node_modules/.bin/mocha test/spec/**/*.js",
-    "test": "npm run lint --silent && npm run mocha --silent"
+    "test": "npm run lint --silent && npm run mocha --silent",
+    "postinstall": "node src/post-install/postInstall.js"
   },
   "keywords": [
     "drupal"
@@ -20,6 +22,7 @@
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
     "del": "^2.2.1",
+    "glob": "^7.1.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^3.0.1",
@@ -35,7 +38,8 @@
     "inquirer": "^1.2.3",
     "merge-stream": "^1.0.0",
     "minimist": "^1.2.0",
-    "transliteration": "^1.1.14"
+    "transliteration": "^1.1.14",
+    "undertaker-registry": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

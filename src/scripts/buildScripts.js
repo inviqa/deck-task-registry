@@ -6,7 +6,7 @@ const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 
-module.exports = conf => () => {
+function buildScripts(conf) {
 
   const uglifyConf = {
     mangle: false
@@ -22,4 +22,8 @@ module.exports = conf => () => {
     .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
     .pipe(gulp.dest(jsDest));
 
-};
+}
+
+buildScripts.displayName = 'build:scripts';
+
+module.exports = buildScripts;

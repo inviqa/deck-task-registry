@@ -3,7 +3,7 @@
 const del = require('del');
 const path = require('path');
 
-module.exports = conf => () => {
+function buildClean(conf) {
 
   const deletePaths = [
     path.join(conf.themeConfig.root, conf.themeConfig.sass.dest),
@@ -13,6 +13,12 @@ module.exports = conf => () => {
   ];
 
   // Delete all build dirs.
-  return del(deletePaths, { force: true });
+  return del(deletePaths, {
+    force: true
+  });
 
-};
+}
+
+buildClean.displayName = 'build:clean';
+
+module.exports = buildClean;

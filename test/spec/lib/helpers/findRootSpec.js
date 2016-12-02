@@ -1,7 +1,7 @@
 'use strict';
 
 const mock = require('mock-fs');
-const findRoot = require('../../../../src/lib/helpers/findRoot');
+const findRoot = require('../../../../src/helpers/findRoot');
 const expect = require('chai').expect;
 const path = require('path');
 

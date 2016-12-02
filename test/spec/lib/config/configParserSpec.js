@@ -11,7 +11,7 @@ chai.use(chaiDeepMatch);
 
 // Test subjects.
 const config = require('../../../fixtures/config/config.json');
-const configParser = require('../../../../src/lib/config/configParser');
+const configParser = require('../../../../src/config/configParser');
 
 describe('configParser', () => {
 

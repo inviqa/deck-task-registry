@@ -1,8 +1,10 @@
-{
-  "defaultTheme": "inviqa",
+'use strict';
+
+module.exports = {
+  "defaultTheme": "example",
   "themes": {
-    "inviqa": {
-      "root": "../web/themes/custom/inviqa",
+    "example": {
+      "root": "../web/themes/custom/example",
       "sass": {
         "src": "assets/src/sass",
         "dest": "assets/dist/css",
@@ -12,8 +14,7 @@
       },
       "js": {
         "src": "assets/src/js",
-        "dest": "assets/dist/js",
-        "optimise": true
+        "dest": "assets/dist/js"
       },
       "fonts": {
         "src": "assets/src/fonts",
@@ -25,4 +26,4 @@
       }
     }
   }
-}
+};

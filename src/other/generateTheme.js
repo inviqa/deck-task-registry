@@ -10,7 +10,7 @@ const fs = require('fs');
 const minimist = require('minimist');
 const slugify = require('transliteration').slugify;
 
-module.exports = () => () => {
+function generateDeckTheme() {
 
   const allowedArgs = {
     "string": [
@@ -44,11 +44,16 @@ module.exports = () => () => {
   };
 
   // Copy out the core files required for the theme.
-  const coreFileBuilder = gulp.src(path.join(deckRoot, '*.{yml,theme}'), srcOpts)
+  const coreFileBuilder = gulp.src(path.join(deckRoot, '*.{yml,yml.tpl,theme}'), srcOpts)
     .pipe(replace('{{ SUBTHEME }}', settings.theme))
     .pipe(
-      rename(function (path) {
-        path.basename = path.basename.replace('SUBTHEME', settings.machineName);
+      rename(function (filePath) {
+        filePath.basename = filePath.basename.replace('SUBTHEME', settings.machineName);
+        // If we have a yml.tpl file, then make it a yml file.
+        if (path.extname(filePath.basename) === '.yml') {
+          filePath.basename = filePath.basename.replace('.yml', '');
+          filePath.extname = '.yml';
+        }
       })
     )
     .pipe(gulp.dest(newThemeDest));
@@ -59,4 +64,8 @@ module.exports = () => () => {
 
   return merge(assetsBuilder, coreFileBuilder);
 
-};
+}
+
+generateDeckTheme.displayName = 'generate-deck-subtheme';
+
+module.exports = generateDeckTheme;
