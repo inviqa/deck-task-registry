@@ -1,5 +1,5 @@
 {
-  "name": "inviqa-drupal-gulp-registry",
+  "name": "inviqa-drupal-task-registry",
   "version": "1.0.0",
   "description": "Theme toolchain for Inviqa Drupal projects.",
   "author": "Matt Chapman <mchapman@inviqa.com>",

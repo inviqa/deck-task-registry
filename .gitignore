@@ -5,5 +5,5 @@ coverage
 tests/fixtures/assets/dist
 config.json
 
-gulpfile.js
-config.js
+/gulpfile.js
+/config.js
