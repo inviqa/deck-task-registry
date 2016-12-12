@@ -7,8 +7,8 @@
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [Via Git](#via-git)
-- [Configuration](#configuration)
+  - [Into a new task suite](#into-a-new-task-suite)
+  - [Into an existing task suite](#into-an-existing-task-suite)
 - [Usage](#usage)
   - [Basic usage](#basic-usage)
   - [Build mode](#build-mode)
@@ -38,16 +38,19 @@ to remove your current v3 installation of Gulp.
 
 ## Installation
 
-### Via Git
+### Into a new task suite
 
-1. Clone the repository.
-2. Navigate to `theme`.
-3. Run `npm install`.
+1. Run `$ npm install drupal-task-registry`
+2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
+   `example.config.js` and `gulpfile.js` files into your Gulp tasks directory, removing any example prefixes.
 
-## Configuration
+### Into an existing task suite
 
-1. Rename `config.example.json` to `config.json`.
-2. Change the values to reflect your project.
+1. Run `$ npm install drupal-task-registry`
+2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
+   `example.config.js` files into your Gulp tasks directory, removing any example prefixes.
+3. `require` your config and the `drupal-task-registry` module.
+4. Add the registry to your project by adding `gulp.registry(config)`
 
 ## Usage
 
