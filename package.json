@@ -1,7 +1,7 @@
 {
-  "name": "inviqa-drupal-task-registry",
+  "name": "drupal-task-registry",
   "version": "1.0.0",
-  "description": "Theme toolchain for Inviqa Drupal projects.",
+  "description": "Theme toolchain used for Drupal projects at Inviqa.",
   "author": "Matt Chapman <mchapman@inviqa.com>",
   "engines": {
     "node": ">=4.6.2"
@@ -14,9 +14,11 @@
     "postinstall": "node src/post-install/postInstall.js"
   },
   "keywords": [
-    "drupal"
+    "drupal",
+    "gulp",
+    "gulpplugin"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "autoprefixer": "^6.4.0",
     "bourbon": "^4.2.7",
