@@ -184,8 +184,6 @@ based tasks.
 - Ensure there are tests where possible
 - In lieu of a formal styleguide; follow existing formatting, and ensure ESLint
   doesn't fail.
-- Pull requests must be reviewed by at least one third party unless there are
-  special circumstances.
 - Document your changes.
 
 [codeship-badge]: https://codeship.com/projects/079634a0-4cf5-0134-4c08-7e829346aa02/status?branch=master
