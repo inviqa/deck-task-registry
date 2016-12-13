@@ -1,8 +1,8 @@
 {
-  "name": "drupal-task-registry",
+  "name": "drupal-deck-task-registry",
   "version": "1.0.0",
-  "description": "Theme toolchain used for Drupal projects at Inviqa.",
-  "author": "Matt Chapman <mchapman@inviqa.com>",
+  "description": "Theme toolchain used for Drupal projects running the Deck subtheme.",
+  "author": "Matt Chapman <chapabu101@gmail.com>",
   "engines": {
     "node": ">=4.6.2"
   },
@@ -55,6 +55,5 @@
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "typings": "^2.0.0"
-  },
-  "private": true
+  }
 }
