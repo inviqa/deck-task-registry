@@ -1,6 +1,6 @@
 # Drupal Deck task registry
 
-![codeship status][codeship-badge]
+[![Build Status](https://travis-ci.org/inviqa/deck-task-registry.svg?branch=master)](https://travis-ci.org/inviqa/deck-task-registry)
 
 <!-- TOC depthFrom:2 depthTo:3 -->
 
