@@ -40,13 +40,13 @@ to remove your current v3 installation of Gulp.
 
 ### Into a new task suite
 
-1. Run `$ npm install drupal-deck-task-registry`
+1. Run `$ npm install deck-task-registry`
 2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
    `example.config.js` and `gulpfile.js` files into your Gulp tasks directory, removing any example prefixes.
 
 ### Into an existing task suite
 
-1. Run `$ npm install drupal-deck-task-registry`
+1. Run `$ npm install deck-task-registry`
 2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
    `example.config.js` file into your Gulp tasks directory, removing any example prefixes.
 3. `require` your config and the `drupal-task-registry` module.
