@@ -1,4 +1,4 @@
-# Drupal theme tools
+# Drupal Deck task registry
 
 ![codeship status][codeship-badge]
 
@@ -25,8 +25,8 @@
 ## Overview
 
 This toolset is just a collection of Gulp based development and build tasks.
-They were written primarily for use on Drupal sites, but there's no reason that
-they can't be used on other platforms.
+They were written primarily for use on Drupal sites using the Deck subtheme,
+but there's no reason that they can't be used on other platforms/themes.
 
 They use Gulp v4, but the latest version of Gulp CLI will ensure you don't need
 to remove your current v3 installation of Gulp.
@@ -40,15 +40,15 @@ to remove your current v3 installation of Gulp.
 
 ### Into a new task suite
 
-1. Run `$ npm install drupal-task-registry`
+1. Run `$ npm install drupal-deck-task-registry`
 2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
    `example.config.js` and `gulpfile.js` files into your Gulp tasks directory, removing any example prefixes.
 
 ### Into an existing task suite
 
-1. Run `$ npm install drupal-task-registry`
+1. Run `$ npm install drupal-deck-task-registry`
 2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
-   `example.config.js` files into your Gulp tasks directory, removing any example prefixes.
+   `example.config.js` file into your Gulp tasks directory, removing any example prefixes.
 3. `require` your config and the `drupal-task-registry` module.
 4. Add the registry to your project by adding `gulp.registry(config)`
 
