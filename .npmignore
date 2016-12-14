@@ -1,0 +1,12 @@
+# Directories
+
+.vscode
+test/
+
+#Files
+
+.eslintignore
+.eslintrc
+.jsbeautifyrc
+jsconfig.json
+typings.json
