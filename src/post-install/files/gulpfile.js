@@ -1,8 +1,8 @@
 'use strict';
 
 const gulp = require('gulp');
-const inviqaDrupalRegistry = require('inviqa-drupal-gulp-registry');
+const drupalTaskRegistry = require('drupal-task-registry');
 const config = require('./config');
-const registry = new inviqaDrupalRegistry(config);
+const registry = new drupalTaskRegistry(config);
 
 gulp.registry(registry);

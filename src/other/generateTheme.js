@@ -62,7 +62,19 @@ function generateDeckTheme() {
   const assetsBuilder = gulp.src(path.join(deckRoot, 'assets', '**', '*'), srcOpts)
     .pipe(gulp.dest(path.join(newThemeDest, 'assets')));
 
-  return merge(assetsBuilder, coreFileBuilder);
+  // Copy the dotfiles.
+  const dotfileBuilder = gulp.src(path.join(deckRoot, '.*'), srcOpts)
+    .pipe(gulp.dest(newThemeDest));
+
+  // Copy the hooks directory.
+  const hookBuilder = gulp.src(path.join(deckRoot, 'hooks', '**', '*'))
+    .pipe(gulp.dest(path.join(newThemeDest, 'hooks')));
+
+  // Copy the package.json.
+  const packageJsonBuilder = gulp.src(path.join(deckRoot, 'package.json'))
+    .pipe(gulp.dest(newThemeDest));
+
+  return merge(assetsBuilder, coreFileBuilder, dotfileBuilder, hookBuilder, packageJsonBuilder);
 
 }
 
