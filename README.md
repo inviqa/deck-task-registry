@@ -1,14 +1,14 @@
-# Drupal theme tools
+# Drupal Deck task registry
 
-![codeship status][codeship-badge]
+[![Build Status](https://travis-ci.org/inviqa/deck-task-registry.svg?branch=master)](https://travis-ci.org/inviqa/deck-task-registry)
 
 <!-- TOC depthFrom:2 depthTo:3 -->
 
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [Via Git](#via-git)
-- [Configuration](#configuration)
+  - [Into a new task suite](#into-a-new-task-suite)
+  - [Into an existing task suite](#into-an-existing-task-suite)
 - [Usage](#usage)
   - [Basic usage](#basic-usage)
   - [Build mode](#build-mode)
@@ -25,8 +25,8 @@
 ## Overview
 
 This toolset is just a collection of Gulp based development and build tasks.
-They were written primarily for use on Drupal sites, but there's no reason that
-they can't be used on other platforms.
+They were written primarily for use on Drupal sites using the Deck subtheme,
+but there's no reason that they can't be used on other platforms/themes.
 
 They use Gulp v4, but the latest version of Gulp CLI will ensure you don't need
 to remove your current v3 installation of Gulp.
@@ -38,16 +38,19 @@ to remove your current v3 installation of Gulp.
 
 ## Installation
 
-### Via Git
+### Into a new task suite
 
-1. Clone the repository.
-2. Navigate to `theme`.
-3. Run `npm install`.
+1. Run `$ npm install deck-task-registry`
+2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
+   `example.config.js` and `gulpfile.js` files into your Gulp tasks directory, removing any example prefixes.
 
-## Configuration
+### Into an existing task suite
 
-1. Rename `config.example.json` to `config.json`.
-2. Change the values to reflect your project.
+1. Run `$ npm install deck-task-registry`
+2. If the stub files aren't created, then navigate to `node_modules/src/post-install/files` and copy the
+   `example.config.js` file into your Gulp tasks directory, removing any example prefixes.
+3. `require` your config and the `drupal-task-registry` module.
+4. Add the registry to your project by adding `gulp.registry(config)`
 
 ## Usage
 
@@ -181,8 +184,6 @@ based tasks.
 - Ensure there are tests where possible
 - In lieu of a formal styleguide; follow existing formatting, and ensure ESLint
   doesn't fail.
-- Pull requests must be reviewed by at least one third party unless there are
-  special circumstances.
 - Document your changes.
 
 [codeship-badge]: https://codeship.com/projects/079634a0-4cf5-0134-4c08-7e829346aa02/status?branch=master

@@ -24,7 +24,7 @@ const generateTheme = proxyquire('../../../../src/other/generateTheme', {
 
 describe('generateTheme', function () {
 
-  // The generator os slow, even with a mocked Drupal root finder :(.
+  // The generator is slow, even with a mocked Drupal root finder :(.
   this.timeout(10000);
   let originalArgs = process.argv;
 
@@ -42,6 +42,13 @@ describe('generateTheme', function () {
           'contrib': {
             'deck': {
               'subtheme': {
+                '.gitignore': 'node_modules',
+                'package.json': '{}',
+                'hooks': {
+                  'preprocess': {
+                    'page.inc': '<?php'
+                  },
+                },
                 'SUBTHEME.info.yml.tpl': getFixture('subtheme/subtheme.info.yml'),
                 'SUBTHEME.libraries.yml.tpl': '',
                 'SUBTHEME.theme': getFixture('subtheme/subtheme.theme'),
@@ -147,6 +154,54 @@ describe('generateTheme', function () {
       expect(sassDir).to.exist;
       expect(jsDir).to.exist;
       expect(fontsDir).to.exist;
+
+      done();
+
+    });
+
+  });
+
+  it('copies dotfiles', function (done) {
+
+    const generator = generateTheme();
+
+    generator.on('finish', function () {
+
+      const gitIgnore = file('../docroot/themes/custom/test/.gitignore');
+
+      expect(gitIgnore).to.exist;
+
+      done();
+
+    });
+
+  });
+
+  it('copies hooks', function (done) {
+
+    const generator = generateTheme();
+
+    generator.on('finish', function () {
+
+      const hookFile = file('../docroot/themes/custom/test/hooks/preprocess/page.inc');
+
+      expect(hookFile).to.exist;
+
+      done();
+
+    });
+
+  });
+
+  it('copies the package.json', function (done) {
+
+    const generator = generateTheme();
+
+    generator.on('finish', function () {
+
+      const packageJson = file('../docroot/themes/custom/test/package.json');
+
+      expect(packageJson).to.exist;
 
       done();
 

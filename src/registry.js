@@ -7,17 +7,17 @@ const gutil = require('gulp-util');
 /**
  * Custom Gulp registry containing Drupal tasks.
  *
- * @class InviqaDrupalRegistry
+ * @class DrupalTaskRegistry
  * @extends {DefaultRegistry}
  */
-class InviqaDrupalRegistry extends DefaultRegistry {
+class DrupalTaskRegistry extends DefaultRegistry {
 
   /**
-   * Creates an instance of InviqaDrupalRegistry.
+   * Creates an instance of DrupalTaskRegistry.
    *
    * @param {object|ConfigParser} conf Configuration object.
    *
-   * @memberOf InviqaDrupalRegistry
+   * @memberOf DrupalTaskRegistry
    */
   constructor(conf) {
     super();
@@ -45,7 +45,7 @@ class InviqaDrupalRegistry extends DefaultRegistry {
   /**
    * @inheritdoc
    *
-   * @memberOf InviqaDrupalRegistry
+   * @memberOf DrupalTaskRegistry
    */
   init(undertaker) {
 
@@ -92,7 +92,7 @@ class InviqaDrupalRegistry extends DefaultRegistry {
   /**
    * @inheritdoc
    *
-   * @memberOf InviqaDrupalRegistry
+   * @memberOf DrupalTaskRegistry
    */
   set(name, fn) {
     const task = this._tasks[name] = fn.bind(null, this.conf);
@@ -101,4 +101,4 @@ class InviqaDrupalRegistry extends DefaultRegistry {
 
 }
 
-module.exports = InviqaDrupalRegistry;
+module.exports = DrupalTaskRegistry;

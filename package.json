@@ -1,8 +1,8 @@
 {
-  "name": "inviqa-drupal-task-registry",
+  "name": "deck-task-registry",
   "version": "1.0.0",
-  "description": "Theme toolchain for Inviqa Drupal projects.",
-  "author": "Matt Chapman <mchapman@inviqa.com>",
+  "description": "Theme toolchain used for Drupal projects running the Deck subtheme.",
+  "author": "Matt Chapman <chapabu101@gmail.com>",
   "engines": {
     "node": ">=4.6.2"
   },
@@ -14,9 +14,11 @@
     "postinstall": "node src/post-install/postInstall.js"
   },
   "keywords": [
-    "drupal"
+    "drupal",
+    "gulp",
+    "gulpplugin"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "autoprefixer": "^6.4.0",
     "bourbon": "^4.2.7",
@@ -53,6 +55,5 @@
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "typings": "^2.0.0"
-  },
-  "private": true
+  }
 }
