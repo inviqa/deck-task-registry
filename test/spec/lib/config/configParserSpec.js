@@ -111,7 +111,7 @@ describe('configParser', () => {
         parser = new configParser(config);
       });
 
-      it('shows production mode as true if production is set', () => {
+      it('shows production mode as false if production is not set', () => {
         expect(parser.productionMode).to.be.false;
       });
 
