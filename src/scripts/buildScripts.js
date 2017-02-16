@@ -21,11 +21,7 @@ function buildScripts(conf) {
   const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.[tj]s');
   const jsDest = path.join(conf.themeConfig.root, conf.themeConfig.js.dest);
 
-  let useTypescript = false;
-
-  if (conf.themeConfig.js.hasOwnProperty('es2015')) {
-    useTypescript = conf.themeConfig.js.es2015;
-  }
+  const useTypescript = Boolean(conf.themeConfig.js.es2015);
 
   // Build the theme scripts.
   return gulp.src(jsSrc)
