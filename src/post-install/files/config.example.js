@@ -14,7 +14,8 @@ module.exports = {
       },
       "js": {
         "src": "assets/src/js",
-        "dest": "assets/dist/js"
+        "dest": "assets/dist/js",
+        "es2015": true
       },
       "fonts": {
         "src": "assets/src/fonts",

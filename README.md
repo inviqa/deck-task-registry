@@ -33,7 +33,7 @@ to remove your current v3 installation of Gulp.
 
 ## Requirements
 
-* NodeJS >= v4
+* NodeJS >= v6
 * Gulp CLI (`npm install -g gulp-cli`).
 
 ## Installation
@@ -99,7 +99,7 @@ provided browser configuration.
 Compiles your JavaScript and/or TypeScript and places it into the configured
 `js` directory.
 
-If `optimise` is set to `true`, then your scripts will be piped through the
+If `es2015` is set to `true`, then your scripts will be piped through the
 TypeScript transpiler. This will optimise your code, as well as enable the
 following:
 
