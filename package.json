@@ -4,7 +4,7 @@
   "description": "Theme toolchain used for Drupal projects running the Deck subtheme.",
   "author": "Matt Chapman <chapabu101@gmail.com>",
   "engines": {
-    "node": ">=4.6.2"
+    "node": ">=6.0.0"
   },
   "main": "src/registry.js",
   "scripts": {
