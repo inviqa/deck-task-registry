@@ -10,7 +10,8 @@ module.exports = {
         "dest": "assets/dist/css",
         "browserSupport": [
           "last 2 versions"
-        ]
+        ],
+        "stylelint": {}
       },
       "js": {
         "src": "assets/src/js",

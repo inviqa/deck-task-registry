@@ -51,6 +51,7 @@ class DrupalTaskRegistry extends DefaultRegistry {
 
     // SASS/CSS.
     undertaker.task(require('./styles/buildStyles'));
+    undertaker.task(require('./styles/lintStyles'));
 
     // SCRIPTS.
     undertaker.task(require('./scripts/buildScripts'));
