@@ -27,7 +27,6 @@ describe('configParser', () => {
       expect(parser.activeTheme).to.equal('deck');
     });
 
-
     it('gets the active theme configuration', () => {
       const themeConfigFixture = config.themes.deck;
       expect(parser.themeConfig).to.deep.match(themeConfigFixture);
@@ -74,47 +73,35 @@ describe('configParser', () => {
 
   describe('production mode', () => {
 
-    describe('enabled', () => {
+    // Take a backup of argv and env so we can restore them post-test.
+    const originalArgs = cloneDeep(process.argv);
+    const originalEnv = cloneDeep(process.env);
 
-      let originalArgs;
-      let parser;
-
-      beforeEach(() => {
-        // We take a backup of the current CLI arguments so we can restore them later.
-        originalArgs = cloneDeep(process.argv);
-
-        process.argv = [
-          'gulp',
-          'sass',
-          '--production'
-        ];
-
-        parser = new configParser(config);
-      });
-
-      afterEach(() => {
-        // Reset process arguments back to their original state.
-        process.argv = originalArgs;
-      });
-
-      it('shows production mode as true if production is set', () => {
-        expect(parser.productionMode).to.be.true;
-      });
-
+    afterEach(() => {
+      process.env = originalEnv;
+      process.argv = originalArgs;
     });
 
-    describe('disabled', () => {
+    it('is disabled by default', () => {
+      const parser = new configParser(config);
+      expect(parser.productionMode).to.be.false;
+    });
 
-      let parser;
+    it('is enabled if NODE_ENV is set to production', () => {
+      process.env.NODE_ENV = 'production';
+      const parser = new configParser(config);
+      expect(parser.productionMode).to.be.true;
+    });
 
-      beforeEach(() => {
-        parser = new configParser(config);
-      });
+    it('is enabled if --production flag is passed', () => {
+      process.argv = [
+        'gulp',
+        'sass',
+        '--production'
+      ];
 
-      it('shows production mode as false if production is not set', () => {
-        expect(parser.productionMode).to.be.false;
-      });
-
+      const parser = new configParser(config);
+      expect(parser.productionMode).to.be.true;
     });
 
   });
