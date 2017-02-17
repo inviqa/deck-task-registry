@@ -51,7 +51,7 @@ class configParser {
    * @memberOf configParser
    */
   get productionMode() {
-    return this.args.production;
+    return this.args.production || process.env.NODE_ENV === 'production';
   }
 
 }
