@@ -90,4 +90,4 @@ module.exports = {
       "no-invalid-double-slash-comments": true,
       "no-unknown-animations": true
     }
-  }
+  };
