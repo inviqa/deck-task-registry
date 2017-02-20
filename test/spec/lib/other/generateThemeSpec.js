@@ -43,6 +43,7 @@ describe('generateTheme', function () {
             'deck': {
               'subtheme': {
                 '.gitignore': 'node_modules',
+                '.eslintrc': '',
                 'package.json': '{}',
                 'hooks': {
                   'preprocess': {
@@ -168,8 +169,10 @@ describe('generateTheme', function () {
     generator.on('finish', function () {
 
       const gitIgnore = file('../docroot/themes/custom/test/.gitignore');
+      const eslintrc = file('../docroot/themes/custom/test/.eslintrc');
 
       expect(gitIgnore).to.exist;
+      expect(eslintrc).to.exist;
 
       done();
 
