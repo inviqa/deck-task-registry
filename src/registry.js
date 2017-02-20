@@ -78,7 +78,8 @@ class DrupalTaskRegistry extends DefaultRegistry {
           'build:styles',
           'build:images',
           'build:fonts'
-        )
+        ),
+        'build:holograph'
       )(done);
     });
 
