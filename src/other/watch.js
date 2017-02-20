@@ -12,7 +12,10 @@ function watch(conf) {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
-    gulp.series('build:styles')
+    gulp.series(
+      'build:styles',
+      'build:holograph'
+    )
   );
 
   /**
