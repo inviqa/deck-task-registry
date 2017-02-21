@@ -23,7 +23,6 @@ function lintStyles(conf) {
     stylelintConf = merge(stylelintConf, conf.themeConfig.sass.stylelint);
   }
 
-  // Lint theme scripts with ESLint. This won't touch any TypeScript files.
   return gulp.src(sassSrc)
     .pipe(stylelint(stylelintConf));
 

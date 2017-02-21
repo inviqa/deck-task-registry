@@ -72,7 +72,10 @@ class DrupalTaskRegistry extends DefaultRegistry {
     undertaker.task('build', function buildTask(conf, done) {
       return undertaker.series(
         'build:clean',
-        'lint:scripts',
+        undertaker.parallel(
+          'lint:scripts',
+          'lint:styles'
+        ),
         undertaker.parallel(
           'build:scripts',
           'build:styles',
