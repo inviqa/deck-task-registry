@@ -13,8 +13,9 @@ function watch(conf) {
   gulp.watch(
     path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
     gulp.series(
-      'build:styles',
-      'build:holograph'
+      require('../styles/lintStyles').bind(null, conf),
+      require('../styles/buildStyles').bind(null, conf),
+      require('../styles/holograph').bind(null, conf)
     )
   );
 
@@ -24,8 +25,8 @@ function watch(conf) {
   gulp.watch(
     path.join(root, conf.themeConfig.js.src, '**', '*.js'),
     gulp.series(
-      'lint:scripts',
-      'build:scripts'
+      require('../scripts/lintScripts').bind(null, conf),
+      require('../scripts/buildScripts').bind(null, conf)
     )
   );
 
@@ -34,7 +35,9 @@ function watch(conf) {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.images.src, '**', '*'),
-    gulp.series('build:images')
+    gulp.series(
+      require('../assets/buildImages').bind(null, conf)
+    )
   );
 
   /**
@@ -42,7 +45,9 @@ function watch(conf) {
    */
   gulp.watch(
     path.join(root, conf.themeConfig.fonts.src, '**', '*'),
-    gulp.series('build:fonts')
+    gulp.series(
+      require('../assets/buildFonts').bind(null, conf)
+    )
   );
 
 }
