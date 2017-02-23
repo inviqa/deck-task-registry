@@ -3,6 +3,7 @@
   "version": "1.2.1",
   "description": "Theme toolchain used for Drupal projects running the Deck subtheme.",
   "author": "Matt Chapman <chapabu101@gmail.com>",
+  "repository": "https://github.com/inviqa/deck-task-registry",
   "engines": {
     "node": ">=6.0.0"
   },
@@ -21,8 +22,6 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^6.4.0",
-    "bourbon": "^4.2.7",
-    "bourbon-neat": "^1.8.0",
     "del": "^2.2.1",
     "glob": "^7.1.1",
     "gulp": "github:gulpjs/gulp#4.0",
