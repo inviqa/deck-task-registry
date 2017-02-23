@@ -10,8 +10,17 @@ function watch(conf) {
   /**
    * STYLE WATCHING.
    */
+  let sassDirs = conf.themeConfig.sass.src;
+  if (!Array.isArray(sassDirs)) {
+    sassDirs = [ sassDirs ];
+  }
+
+  const sassSrc = sassDirs.map(dir => {
+    return path.join(root, dir, '**', '*.scss');
+  });
+
   gulp.watch(
-    path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
+    sassSrc,
     gulp.series(
       require('../styles/lintStyles').bind(null, conf),
       require('../styles/buildStyles').bind(null, conf),
@@ -22,8 +31,17 @@ function watch(conf) {
   /**
    * SCRIPT WATCHING.
    */
+  let jsDirs = conf.themeConfig.js.src;
+  if (!Array.isArray(jsDirs)) {
+    jsDirs = [ jsDirs ];
+  }
+
+  const jsSrc = jsDirs.map(dir => {
+    return path.join(root, dir, '**', '*.[tj]s');
+  });
+
   gulp.watch(
-    path.join(root, conf.themeConfig.js.src, '**', '*.js'),
+    jsSrc,
     gulp.series(
       require('../scripts/lintScripts').bind(null, conf),
       require('../scripts/buildScripts').bind(null, conf)
@@ -33,8 +51,17 @@ function watch(conf) {
   /**
    * IMAGE WATCHING.
    */
+  let imagesDirs = conf.themeConfig.images.src;
+  if (!Array.isArray(imagesDirs)) {
+    imagesDirs = [ imagesDirs ];
+  }
+
+  const imagesSrc = imagesDirs.map(dir => {
+    return path.join(root, dir, '**', '*');
+  });
+
   gulp.watch(
-    path.join(root, conf.themeConfig.images.src, '**', '*'),
+    imagesSrc,
     gulp.series(
       require('../assets/buildImages').bind(null, conf)
     )
@@ -43,8 +70,17 @@ function watch(conf) {
   /**
    * FONT WATCHING.
    */
+  let fontsDirs = conf.themeConfig.fonts.src;
+  if (!Array.isArray(fontsDirs)) {
+    fontsDirs = [ fontsDirs ];
+  }
+
+  const fontsSrc = fontsDirs.map(dir => {
+    return path.join(root, dir, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
+  });
+
   gulp.watch(
-    path.join(root, conf.themeConfig.fonts.src, '**', '*'),
+    fontsSrc,
     gulp.series(
       require('../assets/buildFonts').bind(null, conf)
     )

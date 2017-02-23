@@ -7,7 +7,14 @@ const merge = require('merge');
 
 function lintStyles(conf) {
 
-  const sassSrc = path.join(conf.themeConfig.root, conf.themeConfig.sass.src, '**', '*.scss');
+  let sassDirs = conf.themeConfig.sass.src;
+  if (!Array.isArray(sassDirs)) {
+    sassDirs = [ sassDirs ];
+  }
+
+  const sassSrc = sassDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*.scss');
+  });
 
   let stylelintConf = {
     config: require('./stylelint.config'),
@@ -23,6 +30,7 @@ function lintStyles(conf) {
     stylelintConf = merge(stylelintConf, conf.themeConfig.sass.stylelint);
   }
 
+  // Lint theme scripts with ESLint. This won't touch any TypeScript files.
   return gulp.src(sassSrc)
     .pipe(stylelint(stylelintConf));
 

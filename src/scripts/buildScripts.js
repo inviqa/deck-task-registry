@@ -18,7 +18,15 @@ function buildScripts(conf) {
     allowJs: true
   };
 
-  const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.[tj]s');
+  let jsDirs = conf.themeConfig.js.src;
+  if (!Array.isArray(jsDirs)) {
+    jsDirs = [ jsDirs ];
+  }
+
+  const jsSrc = jsDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*.[tj]s');
+  });
+
   const jsDest = path.join(conf.themeConfig.root, conf.themeConfig.js.dest);
 
   const useTypescript = Boolean(conf.themeConfig.js.es2015);
