@@ -51,8 +51,17 @@ function watch(conf) {
   /**
    * IMAGE WATCHING.
    */
+  let imagesDirs = conf.themeConfig.images.src;
+  if (!Array.isArray(imagesDirs)) {
+    imagesDirs = [ imagesDirs ];
+  }
+
+  const imagesSrc = imagesDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*');
+  });
+
   gulp.watch(
-    path.join(root, conf.themeConfig.images.src, '**', '*'),
+    imagesSrc,
     gulp.series(
       require('../assets/buildImages').bind(null, conf)
     )

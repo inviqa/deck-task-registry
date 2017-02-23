@@ -17,12 +17,20 @@ function buildImages(conf) {
       }]
     };
 
-    const imageSrc = path.join(conf.themeConfig.root, conf.themeConfig.images.src, '**', '*');
-    const imageDest = path.join(conf.themeConfig.root, conf.themeConfig.images.dest);
+    let imagesDirs = conf.themeConfig.images.src;
+    if (!Array.isArray(imagesDirs)) {
+      imagesDirs = [ imagesDirs ];
+    }
 
-    return gulp.src(imageSrc)
+    const imagesSrc = imagesDirs.map(dir => {
+      return path.join(conf.themeConfig.root, dir, '**', '*');
+    });
+
+    const imagesDest = path.join(conf.themeConfig.root, conf.themeConfig.images.dest);
+
+    return gulp.src(imagesSrc)
       .pipe(imagemin(imageMinConfig))
-      .pipe(gulp.dest(imageDest));
+      .pipe(gulp.dest(imagesDest));
 
 }
 
