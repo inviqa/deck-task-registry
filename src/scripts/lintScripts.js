@@ -7,7 +7,14 @@ const path = require('path');
 
 function lintScripts(conf) {
 
-  const jsSrc = path.join(conf.themeConfig.root, conf.themeConfig.js.src, '**', '*.js');
+  let jsDirs = conf.themeConfig.js.src;
+  if (!Array.isArray(jsDirs)) {
+    jsDirs = [ jsDirs ];
+  }
+
+  const jsSrc = jsDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*.[tj]s');
+  });
 
   // Lint theme scripts with ESLint. This won't touch any TypeScript files.
   return gulp.src(jsSrc)
