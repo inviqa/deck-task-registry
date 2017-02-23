@@ -30,7 +30,15 @@ function buildStyles(conf) {
       })
     ];
 
-    const sassSrc = path.join(conf.themeConfig.root, conf.themeConfig.sass.src, '**', '*.scss');
+    let sassDirs = conf.themeConfig.sass.src;
+    if (!Array.isArray(sassDirs)) {
+      sassDirs = [ sassDirs ];
+    }
+
+    const sassSrc = sassDirs.map(dir => {
+      return path.join(conf.themeConfig.root, dir, '**', '*.scss');
+    });
+
     const sassDest = path.join(conf.themeConfig.root, conf.themeConfig.sass.dest);
 
     // The task itself.
