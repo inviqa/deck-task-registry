@@ -16,7 +16,7 @@ function watch(conf) {
   }
 
   const sassSrc = sassDirs.map(dir => {
-    return path.join(conf.themeConfig.root, dir, '**', '*.scss');
+    return path.join(root, dir, '**', '*.scss');
   });
 
   gulp.watch(
@@ -37,7 +37,7 @@ function watch(conf) {
   }
 
   const jsSrc = jsDirs.map(dir => {
-    return path.join(conf.themeConfig.root, dir, '**', '*.[tj]s');
+    return path.join(root, dir, '**', '*.[tj]s');
   });
 
   gulp.watch(
@@ -57,7 +57,7 @@ function watch(conf) {
   }
 
   const imagesSrc = imagesDirs.map(dir => {
-    return path.join(conf.themeConfig.root, dir, '**', '*');
+    return path.join(root, dir, '**', '*');
   });
 
   gulp.watch(
@@ -76,7 +76,7 @@ function watch(conf) {
   }
 
   const fontsSrc = fontsDirs.map(dir => {
-    return path.join(conf.themeConfig.root, dir, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
+    return path.join(root, dir, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
   });
 
   gulp.watch(
