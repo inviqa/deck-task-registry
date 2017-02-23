@@ -8,7 +8,14 @@ const isPlainObj = require('is-plain-obj');
 
 function buildHolograph(conf, cb) {
 
-  const sassPath = path.join(conf.themeConfig.root, conf.themeConfig.sass.src);
+  let sassDirs = conf.themeConfig.sass.src;
+  if (!Array.isArray(sassDirs)) {
+    sassDirs = [ sassDirs ];
+  }
+
+  const sassPath = sassDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*.scss');
+  });
 
   if (Boolean(conf.themeConfig.sass.holograph) === false) {
     log.info('Skipping Holograph...');
