@@ -61,8 +61,17 @@ function watch(conf) {
   /**
    * FONT WATCHING.
    */
+  let fontsDirs = conf.themeConfig.fonts.src;
+  if (!Array.isArray(fontsDirs)) {
+    fontsDirs = [ fontsDirs ];
+  }
+
+  const fontsSrc = fontsDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
+  });
+
   gulp.watch(
-    path.join(root, conf.themeConfig.fonts.src, '**', '*'),
+    fontsSrc,
     gulp.series(
       require('../assets/buildFonts').bind(null, conf)
     )

@@ -5,11 +5,19 @@ const path = require('path');
 
 function buildFonts(conf) {
 
-  const fontSrc = path.join(conf.themeConfig.root, conf.themeConfig.fonts.src, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
-  const fontDest = path.join(conf.themeConfig.root, conf.themeConfig.fonts.dest);
+  let fontsDirs = conf.themeConfig.fonts.src;
+  if (!Array.isArray(fontsDirs)) {
+    fontsDirs = [ fontsDirs ];
+  }
 
-  return gulp.src(fontSrc)
-    .pipe(gulp.dest(fontDest));
+  const fontsSrc = fontsDirs.map(dir => {
+    return path.join(conf.themeConfig.root, dir, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
+  });
+
+  const fontsDest = path.join(conf.themeConfig.root, conf.themeConfig.fonts.dest);
+
+  return gulp.src(fontsSrc)
+    .pipe(gulp.dest(fontsDest));
 
 }
 
