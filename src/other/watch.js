@@ -1,52 +1,57 @@
 'use strict';
 
-const gulp = require('gulp');
 const path = require('path');
 
-function watch(conf) {
+/**
+ * Watch project files.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ */
+function watch(conf, undertaker) {
 
   const root = conf.themeConfig.root;
 
   /**
    * STYLE WATCHING.
    */
-  gulp.watch(
+  undertaker.watch(
     path.join(root, conf.themeConfig.sass.src, '**', '*.scss'),
-    gulp.series(
-      require('../styles/lintStyles').bind(null, conf),
-      require('../styles/buildStyles').bind(null, conf),
-      require('../styles/holograph').bind(null, conf)
+    undertaker.series(
+      require('../styles/lintStyles').bind(null, conf, undertaker),
+      require('../styles/buildStyles').bind(null, conf, undertaker),
+      require('../styles/holograph').bind(null, conf, undertaker)
     )
   );
 
   /**
    * SCRIPT WATCHING.
    */
-  gulp.watch(
+  undertaker.watch(
     path.join(root, conf.themeConfig.js.src, '**', '*.js'),
-    gulp.series(
-      require('../scripts/lintScripts').bind(null, conf),
-      require('../scripts/buildScripts').bind(null, conf)
+    undertaker.series(
+      require('../scripts/lintScripts').bind(null, conf, undertaker),
+      require('../scripts/buildScripts').bind(null, conf, undertaker)
     )
   );
 
   /**
    * IMAGE WATCHING.
    */
-  gulp.watch(
+  undertaker.watch(
     path.join(root, conf.themeConfig.images.src, '**', '*'),
-    gulp.series(
-      require('../assets/buildImages').bind(null, conf)
+    undertaker.series(
+      require('../assets/buildImages').bind(null, conf, undertaker)
     )
   );
 
   /**
    * FONT WATCHING.
    */
-  gulp.watch(
+  undertaker.watch(
     path.join(root, conf.themeConfig.fonts.src, '**', '*'),
-    gulp.series(
-      require('../assets/buildFonts').bind(null, conf)
+    undertaker.series(
+      require('../assets/buildFonts').bind(null, conf, undertaker)
     )
   );
 

@@ -45,9 +45,14 @@ class DrupalTaskRegistry extends DefaultRegistry {
   /**
    * @inheritdoc
    *
+   * @param {object|Undertaker} undertaker An Undertaker instance (i.e. Gulp).
+   *
    * @memberOf DrupalTaskRegistry
    */
   init(undertaker) {
+
+    // Store the instance of the Undertaker.
+    this.undertaker = undertaker;
 
     // SASS/CSS.
     undertaker.task(require('./styles/buildStyles'));
@@ -101,7 +106,7 @@ class DrupalTaskRegistry extends DefaultRegistry {
    * @memberOf DrupalTaskRegistry
    */
   set(name, fn) {
-    const task = this._tasks[name] = fn.bind(null, this.conf);
+    const task = this._tasks[name] = fn.bind(null, this.conf, this.undertaker);
     return task;
   }
 
