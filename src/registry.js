@@ -74,22 +74,7 @@ class DrupalTaskRegistry extends DefaultRegistry {
 
     // NAMED TASKS.
     // These are required as just passing undertaker.series means that you can't flag async completion.
-    undertaker.task('build', function buildTask(conf, undertaker, done) {
-      return undertaker.series(
-        'build:clean',
-        undertaker.parallel(
-          'lint:scripts',
-          'lint:styles'
-        ),
-        undertaker.parallel(
-          'build:scripts',
-          'build:styles',
-          'build:images',
-          'build:fonts'
-        ),
-        'build:holograph'
-      )(done);
-    });
+    undertaker.task('build', require('./build/build'));
 
     undertaker.task('default', function defaultTask(conf, undertaker, done) {
       return undertaker.series(
