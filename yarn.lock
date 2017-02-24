@@ -343,16 +343,6 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bourbon-neat@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/bourbon-neat/-/bourbon-neat-1.8.0.tgz#2ffd6dbfee45db5140f2fff280163302c73e7335"
-  dependencies:
-    node-sass "^3.4"
-
-bourbon@^4.2.7:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/bourbon/-/bourbon-4.3.2.tgz#857582bc516243864d6c8db23d5eeea0343db4a6"
-
 boxen@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-0.6.0.tgz#8364d4248ac34ff0ef1b2f2bf49a6c60ce0d81b6"
@@ -3162,7 +3152,7 @@ node-pre-gyp@^0.6.29:
     tar "~2.2.1"
     tar-pack "~3.3.0"
 
-node-sass@^3.4, node-sass@^3.4.2:
+node-sass@^3.4.2:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-3.13.1.tgz#7240fbbff2396304b4223527ed3020589c004fc2"
   dependencies:

@@ -18,12 +18,7 @@ const autoprefixer = require('autoprefixer');
 function buildStyles(conf, undertaker) {
 
     // Config that gets passed to node-sass.
-    const sassConfig = {
-      includePaths: [
-        require('bourbon').includePaths,
-        require('bourbon-neat').includePaths
-      ]
-    };
+    const sassConfig = conf.themeConfig.sass.nodeSassConf || {};
 
     // If we're in production mode, then compress the output CSS.
     if (conf.productionMode) {

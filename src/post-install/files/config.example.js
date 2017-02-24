@@ -11,7 +11,8 @@ module.exports = {
         "browserSupport": [
           "last 2 versions"
         ],
-        "stylelint": {}
+        "stylelint": {},
+        "nodeSassConf": {}
       },
       "js": {
         "src": "assets/src/js",
