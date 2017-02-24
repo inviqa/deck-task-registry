@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+ * Run all test and build tasks with maximum concurrency.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ * @param {Function} done A callback to call on task completion/
+ *
+ * @returns {Stream} A stream of files.
+ */
 function build (conf, undertaker, done) {
   return undertaker.series(
     require('./clean').bind(null, conf, undertaker),
