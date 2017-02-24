@@ -1,12 +1,17 @@
 # Directories
 
 .vscode
+typings
 test/
 
-#Files
+# Files
 
 .eslintignore
 .eslintrc
 .jsbeautifyrc
+.travis.yml
+config.js
+gulpfile.js
 jsconfig.json
 typings.json
+yarn.lock
