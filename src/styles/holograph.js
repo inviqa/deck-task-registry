@@ -6,7 +6,16 @@ const merge = require('merge');
 const log = require('gulplog');
 const isPlainObj = require('is-plain-obj');
 
-function buildHolograph(conf, cb) {
+/**
+ * Build an optional Holograph styleguide..
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ * @param {Function} cb A callback to execute on Holograph completion.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function buildHolograph(conf, undertaker, cb) {
 
   const sassPath = path.join(conf.themeConfig.root, conf.themeConfig.sass.src);
 

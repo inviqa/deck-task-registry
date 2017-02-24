@@ -1,10 +1,17 @@
 'use strict';
 
-const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const path = require('path');
 
-function buildImages(conf) {
+/**
+ * Build project images.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function buildImages(conf, undertaker) {
 
     const imageMinConfig = {
       progressive: true,
@@ -20,9 +27,9 @@ function buildImages(conf) {
     const imageSrc = path.join(conf.themeConfig.root, conf.themeConfig.images.src, '**', '*');
     const imageDest = path.join(conf.themeConfig.root, conf.themeConfig.images.dest);
 
-    return gulp.src(imageSrc)
+    return undertaker.src(imageSrc)
       .pipe(imagemin(imageMinConfig))
-      .pipe(gulp.dest(imageDest));
+      .pipe(undertaker.dest(imageDest));
 
 }
 

@@ -5,6 +5,7 @@ const chai = require('chai');
 const chaiFiles = require('chai-files');
 const expect = chai.expect;
 const getFixture = require('../../../fixtures/getFixture');
+const gulp = require('gulp');
 
 chai.use(chaiFiles);
 const file = chaiFiles.file;
@@ -99,7 +100,7 @@ describe('generateTheme', function () {
 
   it('creates core files', function (done) {
 
-    const generator = generateTheme();
+    const generator = generateTheme({}, gulp);
 
     generator.on('finish', function () {
 
@@ -119,7 +120,7 @@ describe('generateTheme', function () {
 
   it('replaces placeholders in core files', function (done) {
 
-    const generator = generateTheme();
+    const generator = generateTheme({}, gulp);
 
     generator.on('finish', function () {
 
@@ -142,7 +143,7 @@ describe('generateTheme', function () {
 
   it('creates the assets directories', function (done) {
 
-    const generator = generateTheme();
+    const generator = generateTheme({}, gulp);
 
     generator.on('finish', function () {
 
@@ -164,7 +165,7 @@ describe('generateTheme', function () {
 
   it('copies dotfiles', function (done) {
 
-    const generator = generateTheme();
+    const generator = generateTheme({}, gulp);
 
     generator.on('finish', function () {
 
@@ -182,7 +183,7 @@ describe('generateTheme', function () {
 
   it('copies hooks', function (done) {
 
-    const generator = generateTheme();
+    const generator = generateTheme({}, gulp);
 
     generator.on('finish', function () {
 
@@ -198,7 +199,7 @@ describe('generateTheme', function () {
 
   it('copies the package.json', function (done) {
 
-    const generator = generateTheme();
+    const generator = generateTheme({}, gulp);
 
     generator.on('finish', function () {
 

@@ -1,11 +1,18 @@
 'use strict';
 
-const gulp = require('gulp');
 const stylelint = require('gulp-stylelint');
 const path = require('path');
 const merge = require('merge');
 
-function lintStyles(conf) {
+/**
+ * Lint project styles.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function lintStyles(conf, undertaker) {
 
   const sassSrc = path.join(conf.themeConfig.root, conf.themeConfig.sass.src, '**', '*.scss');
 
@@ -23,7 +30,7 @@ function lintStyles(conf) {
     stylelintConf = merge(stylelintConf, conf.themeConfig.sass.stylelint);
   }
 
-  return gulp.src(sassSrc)
+  return undertaker.src(sassSrc)
     .pipe(stylelint(stylelintConf));
 
 }

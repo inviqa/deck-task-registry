@@ -1,6 +1,5 @@
 'use strict';
 
-const gulp = require('gulp');
 const path = require('path');
 const findRoot = require('../helpers/findRoot');
 const rename = require('gulp-rename');
@@ -10,7 +9,15 @@ const fs = require('fs');
 const minimist = require('minimist');
 const slugify = require('transliteration').slugify;
 
-function generateDeckTheme() {
+/**
+ * Build an optional Holograph styleguide..
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function generateDeckTheme(conf, undertaker) {
 
   const allowedArgs = {
     "string": [
@@ -44,7 +51,7 @@ function generateDeckTheme() {
   };
 
   // Copy out the core files required for the theme.
-  const coreFileBuilder = gulp.src(path.join(deckRoot, '*.{yml,yml.tpl,theme}'), srcOpts)
+  const coreFileBuilder = undertaker.src(path.join(deckRoot, '*.{yml,yml.tpl,theme}'), srcOpts)
     .pipe(replace('{{ SUBTHEME }}', settings.theme))
     .pipe(
       rename(function (filePath) {
@@ -56,23 +63,23 @@ function generateDeckTheme() {
         }
       })
     )
-    .pipe(gulp.dest(newThemeDest));
+    .pipe(undertaker.dest(newThemeDest));
 
   // Copy out the assets.
-  const assetsBuilder = gulp.src(path.join(deckRoot, 'assets', '**', '*'), srcOpts)
-    .pipe(gulp.dest(path.join(newThemeDest, 'assets')));
+  const assetsBuilder = undertaker.src(path.join(deckRoot, 'assets', '**', '*'), srcOpts)
+    .pipe(undertaker.dest(path.join(newThemeDest, 'assets')));
 
   // Copy the dotfiles.
-  const dotfileBuilder = gulp.src(path.join(deckRoot, '.*'), srcOpts)
-    .pipe(gulp.dest(newThemeDest));
+  const dotfileBuilder = undertaker.src(path.join(deckRoot, '.*'), srcOpts)
+    .pipe(undertaker.dest(newThemeDest));
 
   // Copy the hooks directory.
-  const hookBuilder = gulp.src(path.join(deckRoot, 'hooks', '**', '*'))
-    .pipe(gulp.dest(path.join(newThemeDest, 'hooks')));
+  const hookBuilder = undertaker.src(path.join(deckRoot, 'hooks', '**', '*'))
+    .pipe(undertaker.dest(path.join(newThemeDest, 'hooks')));
 
   // Copy the package.json.
-  const packageJsonBuilder = gulp.src(path.join(deckRoot, 'package.json'))
-    .pipe(gulp.dest(newThemeDest));
+  const packageJsonBuilder = undertaker.src(path.join(deckRoot, 'package.json'))
+    .pipe(undertaker.dest(newThemeDest));
 
   return merge(assetsBuilder, coreFileBuilder, dotfileBuilder, hookBuilder, packageJsonBuilder);
 

@@ -1,15 +1,22 @@
 'use strict';
 
-const gulp = require('gulp');
 const path = require('path');
 
-function buildFonts(conf) {
+/**
+ * Build project fonts.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function buildFonts(conf, undertaker) {
 
   const fontSrc = path.join(conf.themeConfig.root, conf.themeConfig.fonts.src, '**', '*.{eot,ttf,woff,woff2,otf,svg}');
   const fontDest = path.join(conf.themeConfig.root, conf.themeConfig.fonts.dest);
 
-  return gulp.src(fontSrc)
-    .pipe(gulp.dest(fontDest));
+  return undertaker.src(fontSrc)
+    .pipe(undertaker.dest(fontDest));
 
 }
 

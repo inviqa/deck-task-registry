@@ -1,13 +1,20 @@
 'use strict';
 
-const gulp = require('gulp');
 const path = require('path');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 const ts = require('gulp-typescript');
 
-function buildScripts(conf) {
+/**
+ * Build project scripts.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function buildScripts(conf, undertaker) {
 
   const uglifyConf = {
     mangle: false
@@ -24,12 +31,12 @@ function buildScripts(conf) {
   const useTypescript = Boolean(conf.themeConfig.js.es2015);
 
   // Build the theme scripts.
-  return gulp.src(jsSrc)
+  return undertaker.src(jsSrc)
     .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
     .pipe(gulpIf(useTypescript, ts(typeScriptConf)))
     .pipe(gulpIf(conf.productionMode, uglify(uglifyConf)))
     .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
-    .pipe(gulp.dest(jsDest));
+    .pipe(undertaker.dest(jsDest));
 
 }
 

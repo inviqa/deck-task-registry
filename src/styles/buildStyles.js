@@ -1,14 +1,21 @@
 'use strict';
 
 const path = require('path');
-const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 
-function buildStyles(conf) {
+/**
+ * Build project styles.
+ *
+ * @param {ConfigParser} conf A configuration parser object.
+ * @param {Undertaker} undertaker An Undertaker instance.
+ *
+ * @returns {Stream} A stream of files.
+ */
+function buildStyles(conf, undertaker) {
 
     // Config that gets passed to node-sass.
     const sassConfig = {
@@ -34,12 +41,12 @@ function buildStyles(conf) {
     const sassDest = path.join(conf.themeConfig.root, conf.themeConfig.sass.dest);
 
     // The task itself.
-    return gulp.src(sassSrc)
+    return undertaker.src(sassSrc)
       .pipe(gulpIf(!conf.productionMode, sourcemaps.init()))
       .pipe(sass(sassConfig).on('error', sass.logError))
       .pipe(postcss(postCSSConf))
       .pipe(gulpIf(!conf.productionMode, sourcemaps.write('.')))
-      .pipe(gulp.dest(sassDest));
+      .pipe(undertaker.dest(sassDest));
 
 }
 
