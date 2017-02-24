@@ -72,16 +72,9 @@ class DrupalTaskRegistry extends DefaultRegistry {
     undertaker.task(require('./other/generateTheme'));
     undertaker.task(require('./other/watch'));
 
-    // NAMED TASKS.
-    // These are required as just passing undertaker.series means that you can't flag async completion.
+    // MAIN TASKS.
     undertaker.task('build', require('./build/build'));
-
-    undertaker.task('default', function defaultTask(conf, undertaker, done) {
-      return undertaker.series(
-        'build',
-        'watch'
-      )(done);
-    });
+    undertaker.task('default', require('./other/default'));
 
   }
 
