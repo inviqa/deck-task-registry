@@ -1,8 +1,11 @@
 language: node_js
 matrix:
   include:
-    - node_js: "7"
-    - node_js: "6"
-  allow_failures:
-    - node_js: "4"
-    - node_js: "5"
+  - node_js: '7'
+  - node_js: '6'
+deploy:
+  on:
+    tags: true
+  provider: npm
+  api_key:
+    secure: VfbQjWeN0wjNNz7IOjZ4/+hd9dFe97ngaOdZBHbGUtV73u+0yBEleRHrLFOQ+tKKN8SkXJqnht/vlp+IbXgW1CNTr0i3tav0Rqf3vv1ups1dpVxEEBg0Lj13srTdRbry+ZOUN3LU4j6S02mIPZWRFN36iIWZLn2biuGnCipDvOXwqmGWyM/D+Z6nEUg0j5nCQOcvH7nu0qVkkylsvxLhW99U1x5YJv27TAeaNKxdc6Q/VAru5IZYzbDB0ex79k955nZFL8aW0CHbkKw1eVpTejL1fzfpDR68dpYQ6YRPP476Ji8i7Ly4WMuNQUmbWZbTrro8ErJaxYLa6vIOqgRvy3yXpbDRsA78MdvFFRZLkmaih3NehTLOGno7XSVEDpyazdEqEVar5SsfNRcp7iZxWL0eRsnpNV2qPo6wj5dFx507XRIrBpsMX6TLhY/XYOSqc3xF2Jd3VWn0IxJljYP4Etb7lWJ4s9l9ivo1Dv4EWcF8LCMJlnyjzgbvESaqyWlVsnx9oovx01hI6XpkZrOTAMC6Htk4KUlOu2im8vAa+5TnSv/6MozvES3BF8YhGS9WqhUMj4Gjev+glMglQzH+KV/IOwkcVLFogUriFAmQTsijagswhHtTdtkmEMr/r327TPsozcFT9+dkSrDLclgGm6CFZeI+h7cKhhFrbMI4nvQ=
