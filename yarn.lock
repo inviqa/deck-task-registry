@@ -1584,7 +1584,7 @@ gifsicle@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-"github:gulpjs/gulp#4.0":
+"github:gulpjs/gulp#4.0", "gulp@github:gulpjs/gulp#4.0":
   name gulp
   version "4.0.0-alpha.2"
   resolved "https://codeload.github.com/gulpjs/gulp/tar.gz/3f5aba28718dc19e4bf600fb88f128158ff2ff83"
